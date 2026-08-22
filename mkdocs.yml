@@ -1,0 +1,69 @@
+site_name: OX-Stealth Myth Hunter
+site_description: Multi-lingual Cuneiform Corpus Pipeline for Digital Humanities
+site_author: Mink Helwig
+site_url: https://signumcore.github.io/ox-stealth-myth-hunter/
+repo_url: https://github.com/SignumCore/ox-stealth-myth-hunter
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle: {icon: material/weather-night, name: Switch to dark mode}
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle: {icon: material/weather-sunny, name: Switch to light mode}
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Database Schema: architecture/schema.md
+      - Pipeline Stages: architecture/pipeline.md
+  - API Reference: api.md
+  - Dashboard: dashboard.md
+  - Publishing: publishing.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [ox_stealth]
+          options:
+            show_source: true
+            docstring_style: google
+            members_order: source
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SignumCore/ox-stealth-myth-hunter
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/signumcore/ox-stealth
