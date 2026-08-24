@@ -75,4 +75,6 @@ docker-compose.override.yml
 # prebaked_sign_knowledge.json
 # prebaked_embeddings/
 # cuneiform_master.db-wal
-# cuneiform_master.db-shm
+# cuneiform_master.db-shmCuneiMLv1.2.json
+*.db-shm
+*.db-wal
