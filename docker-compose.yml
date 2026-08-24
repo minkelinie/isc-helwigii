@@ -1,0 +1,114 @@
+# I.S.C. Helwigii — Docker Compose Configuration
+# Classical Frontispiece Edition v2.0.0
+
+version: '3.8'
+
+services:
+  # ──────────────────────────────────────────────
+  # MAIN APPLICATION — Streamlit Dashboard
+  # ──────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: ox_stealth_app
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - cuneiform_data:/data
+      - cuneiform_prebaked:/data/prebaked_embeddings
+      - cuneiform_export:/data/export
+      - cuneiform_images:/data/images
+    environment:
+      - PYTHONPATH=/app
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_PORT=8501
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+  # ──────────────────────────────────────────────
+  # PIPELINE RUNNER — One-off pipeline execution
+  # ──────────────────────────────────────────────
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: ox_stealth_pipeline
+    profiles: ["pipeline"]
+    volumes:
+      - cuneiform_data:/data
+      - cuneiform_prebaked:/data/prebaked_embeddings
+      - cuneiform_export:/data/export
+      - cuneiform_images:/data/images
+    environment:
+      - PYTHONPATH=/app
+    entrypoint: ["python3"]
+    command: ["-c", "print('Pipeline container ready. Run specific scripts with docker compose run --rm pipeline python3 <script>.py')"]
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+
+  # ──────────────────────────────────────────────
+  # DEVELOPMENT — Hot-reload development mode
+  # ──────────────────────────────────────────────
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: ox_stealth_dev
+    profiles: ["dev"]
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - cuneiform_data:/data
+      - cuneiform_prebaked:/data/prebaked_embeddings
+      - cuneiform_export:/data/export
+      - cuneiform_images:/data/images
+    environment:
+      - PYTHONPATH=/app
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_RUN_ON_SAVE=true
+    command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true", "--server.runOnSave=true"]
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+
+volumes:
+  cuneiform_data:
+    driver: local
+  cuneiform_prebaked:
+    driver: local
+  cuneiform_export:
+    driver: local
+  cuneiform_images:
+    driver: local
+
+networks:
+  default:
+    name: isc-helwigii-network

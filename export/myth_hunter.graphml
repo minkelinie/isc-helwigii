@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d3" for="node" attr.name="myths" attr.type="string"/>
+<key id="d2" for="node" attr.name="genre" attr.type="string"/>
+<key id="d1" for="node" attr.name="language" attr.type="string"/>
+<key id="d0" for="node" attr.name="title" attr.type="string"/>
+<graph edgedefault="undirected"><node id="LEGACY-75400392a6ae8077">
+  <data key="d0">Enuma Elish Reconstructie (Demo)</data>
+  <data key="d1">Unknown</data>
+  <data key="d2">Myth/Epic</data>
+  <data key="d3">uncategorized</data>
+</node>
+<node id="LEGACY-a157725c50f3c3a2">
+  <data key="d0">transliteration</data>
+  <data key="d1">Sumerian</data>
+  <data key="d2">Unknown</data>
+  <data key="d3">uncategorized</data>
+</node>
+<node id="LEGACY-e3c2faae1300e3de">
+  <data key="d0">Gilgamesh Tablet XI (Zondvloed)</data>
+  <data key="d1">Unknown</data>
+  <data key="d2">Myth/Epic</data>
+  <data key="d3">uncategorized</data>
+</node>
+<edge source="LEGACY-75400392a6ae8077" target="LEGACY-a157725c50f3c3a2">
+  <data key="d4">0.7278258204460144</data>
+  <data key="d5">semantic</data>
+</edge>
+<edge source="LEGACY-75400392a6ae8077" target="LEGACY-e3c2faae1300e3de">
+  <data key="d4">0.9817181825637817</data>
+  <data key="d5">semantic</data>
+</edge>
+<edge source="LEGACY-a157725c50f3c3a2" target="LEGACY-e3c2faae1300e3de">
+  <data key="d4">0.7077028751373291</data>
+  <data key="d5">semantic</data>
+</edge>
+</graph></graphml>

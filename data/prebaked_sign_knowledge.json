@@ -1,0 +1,4184 @@
+{
+  "version": "2.0.0",
+  "exported_at": 1787512926.9983568,
+  "count": 249,
+  "signs": [
+    {
+      "sign_id": ":",
+      "unicode": "",
+      "borger_number": "",
+      "name": ":",
+      "sumerian_readings": [
+        ":"
+      ],
+      "akkadian_readings": [
+        ":"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "A",
+      "unicode": "𒀀",
+      "borger_number": "1",
+      "name": "A (water/arm)",
+      "sumerian_readings": [
+        "a",
+        "á",
+        "à",
+        "a5",
+        "a8"
+      ],
+      "akkadian_readings": [
+        "a",
+        "ea",
+        "ā",
+        "ya",
+        "i"
+      ],
+      "logographic_values": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "A-BU-BI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "A-BU-BI",
+      "sumerian_readings": [
+        "a-bu-bi"
+      ],
+      "akkadian_readings": [
+        "a-bu-bi"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 21,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "A-MA-TUM",
+      "unicode": "",
+      "borger_number": "",
+      "name": "A-MA-TUM",
+      "sumerian_readings": [
+        "a-ma-tum"
+      ],
+      "akkadian_readings": [
+        "a-ma-tum"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "A-NA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "A-NA",
+      "sumerian_readings": [
+        "a-na"
+      ],
+      "akkadian_readings": [
+        "a-na"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 13,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "A-WA-TIM",
+      "unicode": "",
+      "borger_number": "",
+      "name": "A-WA-TIM",
+      "sumerian_readings": [
+        "a-wa-tim"
+      ],
+      "akkadian_readings": [
+        "a-wa-tim"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 17,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AAPA,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AAPA,",
+      "sumerian_readings": [
+        "aapa,"
+      ],
+      "akkadian_readings": [
+        "aapa,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ABOVE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ABOVE",
+      "sumerian_readings": [
+        "above"
+      ],
+      "akkadian_readings": [
+        "above"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AFTER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AFTER",
+      "sumerian_readings": [
+        "after"
+      ],
+      "akkadian_readings": [
+        "after"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AGA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AGA",
+      "sumerian_readings": [
+        "aga"
+      ],
+      "akkadian_readings": [
+        "aga"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AGAE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AGAE",
+      "sumerian_readings": [
+        "agae"
+      ],
+      "akkadian_readings": [
+        "agae"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AGGA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AGGA",
+      "sumerian_readings": [
+        "agga"
+      ],
+      "akkadian_readings": [
+        "agga"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ALL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ALL",
+      "sumerian_readings": [
+        "all"
+      ],
+      "akkadian_readings": [
+        "all"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AMINISTRATIVE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AMINISTRATIVE",
+      "sumerian_readings": [
+        "aministrative"
+      ],
+      "akkadian_readings": [
+        "aministrative"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 29,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AN",
+      "unicode": "𒀭",
+      "borger_number": "24",
+      "name": "AN (heaven/god)",
+      "sumerian_readings": [
+        "an",
+        "an5",
+        "an8"
+      ],
+      "akkadian_readings": [
+        "ilu",
+        "šamû",
+        "amû"
+      ],
+      "logographic_values": [
+        "AN",
+        "DINGIR",
+        "ILU"
+      ],
+      "periods": [],
+      "corpus_frequency": 15,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AN,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AN,",
+      "sumerian_readings": [
+        "an,"
+      ],
+      "akkadian_readings": [
+        "an,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AN-ZU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AN-ZU",
+      "sumerian_readings": [
+        "an-zu"
+      ],
+      "akkadian_readings": [
+        "an-zu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ANGLED",
+      "unicode": "𒂊",
+      "borger_number": "583",
+      "name": "ANGLED wedge",
+      "sumerian_readings": [
+        "angled"
+      ],
+      "akkadian_readings": [
+        "angled"
+      ],
+      "logographic_values": [
+        "E",
+        "E"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "ANOTHER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ANOTHER",
+      "sumerian_readings": [
+        "another"
+      ],
+      "akkadian_readings": [
+        "another"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ANZU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ANZU",
+      "sumerian_readings": [
+        "anzu"
+      ],
+      "akkadian_readings": [
+        "anzu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "AR-KU-TI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "AR-KU-TI",
+      "sumerian_readings": [
+        "ar-ku-ti"
+      ],
+      "akkadian_readings": [
+        "ar-ku-ti"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ARATTA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ARATTA",
+      "sumerian_readings": [
+        "aratta"
+      ],
+      "akkadian_readings": [
+        "aratta"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ASSUR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ASSUR",
+      "sumerian_readings": [
+        "assur"
+      ],
+      "akkadian_readings": [
+        "assur"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ATRAHASIS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ATRAHASIS",
+      "sumerian_readings": [
+        "atrahasis"
+      ],
+      "akkadian_readings": [
+        "atrahasis"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "B",
+      "unicode": "",
+      "borger_number": "",
+      "name": "B",
+      "sumerian_readings": [
+        "b"
+      ],
+      "akkadian_readings": [
+        "b"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BA-NI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BA-NI",
+      "sumerian_readings": [
+        "ba-ni"
+      ],
+      "akkadian_readings": [
+        "ba-ni"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 11,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BABYLON",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BABYLON",
+      "sumerian_readings": [
+        "babylon"
+      ],
+      "akkadian_readings": [
+        "babylon"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BABYLONIAN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BABYLONIAN",
+      "sumerian_readings": [
+        "babylonian"
+      ],
+      "akkadian_readings": [
+        "babylonian"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BE-LI-IA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BE-LI-IA",
+      "sumerian_readings": [
+        "be-li-ia"
+      ],
+      "akkadian_readings": [
+        "be-li-ia"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BESIEGE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BESIEGE",
+      "sumerian_readings": [
+        "besiege"
+      ],
+      "akkadian_readings": [
+        "besiege"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BETWEEN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BETWEEN",
+      "sumerian_readings": [
+        "between"
+      ],
+      "akkadian_readings": [
+        "between"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BI",
+      "unicode": "𒁉",
+      "borger_number": "86",
+      "name": "BI (to speak)",
+      "sumerian_readings": [
+        "bi"
+      ],
+      "akkadian_readings": [
+        "bi"
+      ],
+      "logographic_values": [
+        "BI"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "BIR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BIR",
+      "sumerian_readings": [
+        "bir"
+      ],
+      "akkadian_readings": [
+        "bir"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BLACK-HEAE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BLACK-HEAE",
+      "sumerian_readings": [
+        "black-heae"
+      ],
+      "akkadian_readings": [
+        "black-heae"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BORE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BORE",
+      "sumerian_readings": [
+        "bore"
+      ],
+      "akkadian_readings": [
+        "bore"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BRIGHT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BRIGHT",
+      "sumerian_readings": [
+        "bright"
+      ],
+      "akkadian_readings": [
+        "bright"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "BULL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "BULL",
+      "sumerian_readings": [
+        "bull"
+      ],
+      "akkadian_readings": [
+        "bull"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CAMS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CAMS",
+      "sumerian_readings": [
+        "cams"
+      ],
+      "akkadian_readings": [
+        "cams"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 16,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CATTLE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CATTLE",
+      "sumerian_readings": [
+        "cattle"
+      ],
+      "akkadian_readings": [
+        "cattle"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CAVE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CAVE",
+      "sumerian_readings": [
+        "cave"
+      ],
+      "akkadian_readings": [
+        "cave"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CCLT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CCLT",
+      "sumerian_readings": [
+        "cclt"
+      ],
+      "akkadian_readings": [
+        "cclt"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 16,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CCS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CCS",
+      "sumerian_readings": [
+        "ccs"
+      ],
+      "akkadian_readings": [
+        "ccs"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 17,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CEAR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CEAR",
+      "sumerian_readings": [
+        "cear"
+      ],
+      "akkadian_readings": [
+        "cear"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CITY",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CITY",
+      "sumerian_readings": [
+        "city"
+      ],
+      "akkadian_readings": [
+        "city"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CLEAN,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CLEAN,",
+      "sumerian_readings": [
+        "clean,"
+      ],
+      "akkadian_readings": [
+        "clean,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "COMPLEX",
+      "unicode": "𒆜",
+      "borger_number": "154",
+      "name": "COMPLEX (KASKAL)",
+      "sumerian_readings": [
+        "complex"
+      ],
+      "akkadian_readings": [
+        "complex"
+      ],
+      "logographic_values": [
+        "KASKAL"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "CREATES",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CREATES",
+      "sumerian_readings": [
+        "creates"
+      ],
+      "akkadian_readings": [
+        "creates"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CREATION",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CREATION",
+      "sumerian_readings": [
+        "creation"
+      ],
+      "akkadian_readings": [
+        "creation"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "CURSE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "CURSE",
+      "sumerian_readings": [
+        "curse"
+      ],
+      "akkadian_readings": [
+        "curse"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "DEEP,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "DEEP,",
+      "sumerian_readings": [
+        "deep,"
+      ],
+      "akkadian_readings": [
+        "deep,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "DILMUN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "DILMUN",
+      "sumerian_readings": [
+        "dilmun"
+      ],
+      "akkadian_readings": [
+        "dilmun"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "DINGIR",
+      "unicode": "𒀭",
+      "borger_number": "24",
+      "name": "DINGIR (god determinative)",
+      "sumerian_readings": [
+        "an",
+        "an5"
+      ],
+      "akkadian_readings": [
+        "ilu"
+      ],
+      "logographic_values": [
+        "DINGIR",
+        "AN"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "DU",
+      "unicode": "𒁺",
+      "borger_number": "72",
+      "name": "DU (to go)",
+      "sumerian_readings": [
+        "du"
+      ],
+      "akkadian_readings": [
+        "du"
+      ],
+      "logographic_values": [
+        "DU",
+        "ALAK"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "DUB",
+      "unicode": "𒁾",
+      "borger_number": "150",
+      "name": "DUB (tablet)",
+      "sumerian_readings": [
+        "dub"
+      ],
+      "akkadian_readings": [
+        "dub"
+      ],
+      "logographic_values": [
+        "DUB",
+        "TUPPU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "E",
+      "unicode": "",
+      "borger_number": "",
+      "name": "E",
+      "sumerian_readings": [
+        "e"
+      ],
+      "akkadian_readings": [
+        "e"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 26,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "E-LIŠ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "E-LIŠ",
+      "sumerian_readings": [
+        "e-liš"
+      ],
+      "akkadian_readings": [
+        "e-liš"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "E-NU-MA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "E-NU-MA",
+      "sumerian_readings": [
+        "e-nu-ma"
+      ],
+      "akkadian_readings": [
+        "e-nu-ma"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "E2",
+      "unicode": "𒂍",
+      "borger_number": "32",
+      "name": "E2 (house/temple)",
+      "sumerian_readings": [
+        "e2",
+        "é"
+      ],
+      "akkadian_readings": [
+        "bītu"
+      ],
+      "logographic_values": [
+        "E2",
+        "BI2"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "EA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EA",
+      "sumerian_readings": [
+        "ea"
+      ],
+      "akkadian_readings": [
+        "ea"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EBATE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EBATE",
+      "sumerian_readings": [
+        "ebate"
+      ],
+      "akkadian_readings": [
+        "ebate"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EBIH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EBIH",
+      "sumerian_readings": [
+        "ebih"
+      ],
+      "akkadian_readings": [
+        "ebih"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EIII",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EIII",
+      "sumerian_readings": [
+        "eiii"
+      ],
+      "akkadian_readings": [
+        "eiii"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 23,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ELISH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ELISH",
+      "sumerian_readings": [
+        "elish"
+      ],
+      "akkadian_readings": [
+        "elish"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EN",
+      "unicode": "𒂗",
+      "borger_number": "152",
+      "name": "EN (lord/priest)",
+      "sumerian_readings": [
+        "en",
+        "en2"
+      ],
+      "akkadian_readings": [
+        "bēlu",
+        "belu"
+      ],
+      "logographic_values": [
+        "EN"
+      ],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EN-SUHGIR-ANA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EN-SUHGIR-ANA",
+      "sumerian_readings": [
+        "en-suhgir-ana"
+      ],
+      "akkadian_readings": [
+        "en-suhgir-ana"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ENLIL,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ENLIL,",
+      "sumerian_readings": [
+        "enlil,"
+      ],
+      "akkadian_readings": [
+        "enlil,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ENMERKAR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ENMERKAR",
+      "sumerian_readings": [
+        "enmerkar"
+      ],
+      "akkadian_readings": [
+        "enmerkar"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ENMERKAR,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ENMERKAR,",
+      "sumerian_readings": [
+        "enmerkar,"
+      ],
+      "akkadian_readings": [
+        "enmerkar,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ENU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ENU",
+      "sumerian_readings": [
+        "enu"
+      ],
+      "akkadian_readings": [
+        "enu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ENUMA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ENUMA",
+      "sumerian_readings": [
+        "enuma"
+      ],
+      "akkadian_readings": [
+        "enuma"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EPIC",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EPIC",
+      "sumerian_readings": [
+        "epic"
+      ],
+      "akkadian_readings": [
+        "epic"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ERIU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ERIU",
+      "sumerian_readings": [
+        "eriu"
+      ],
+      "akkadian_readings": [
+        "eriu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ERRA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ERRA",
+      "sumerian_readings": [
+        "erra"
+      ],
+      "akkadian_readings": [
+        "erra"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ESCENE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ESCENE",
+      "sumerian_readings": [
+        "escene"
+      ],
+      "akkadian_readings": [
+        "escene"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ESCENT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ESCENT",
+      "sumerian_readings": [
+        "escent"
+      ],
+      "akkadian_readings": [
+        "escent"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "EXALTATION",
+      "unicode": "",
+      "borger_number": "",
+      "name": "EXALTATION",
+      "sumerian_readings": [
+        "exaltation"
+      ],
+      "akkadian_readings": [
+        "exaltation"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "F",
+      "unicode": "",
+      "borger_number": "",
+      "name": "F",
+      "sumerian_readings": [
+        "f"
+      ],
+      "akkadian_readings": [
+        "f"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "FASHIONE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "FASHIONE",
+      "sumerian_readings": [
+        "fashione"
+      ],
+      "akkadian_readings": [
+        "fashione"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "FISH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "FISH",
+      "sumerian_readings": [
+        "fish"
+      ],
+      "akkadian_readings": [
+        "fish"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "FOR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "FOR",
+      "sumerian_readings": [
+        "for"
+      ],
+      "akkadian_readings": [
+        "for"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "FOREST",
+      "unicode": "",
+      "borger_number": "",
+      "name": "FOREST",
+      "sumerian_readings": [
+        "forest"
+      ],
+      "akkadian_readings": [
+        "forest"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "FRAGMENT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "FRAGMENT",
+      "sumerian_readings": [
+        "fragment"
+      ],
+      "akkadian_readings": [
+        "fragment"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 6,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "GA",
+      "unicode": "𒂵",
+      "borger_number": "261",
+      "name": "GA (milk/carry)",
+      "sumerian_readings": [
+        "ga"
+      ],
+      "akkadian_readings": [
+        "ga"
+      ],
+      "logographic_values": [
+        "GA"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "GAL",
+      "unicode": "𒃲",
+      "borger_number": "363",
+      "name": "GAL (great)",
+      "sumerian_readings": [
+        "gal"
+      ],
+      "akkadian_readings": [
+        "gal"
+      ],
+      "logographic_values": [
+        "GAL",
+        "RABU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "GILGAMESH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "GILGAMESH",
+      "sumerian_readings": [
+        "gilgamesh"
+      ],
+      "akkadian_readings": [
+        "gilgamesh"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 8,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "GILGAMESH,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "GILGAMESH,",
+      "sumerian_readings": [
+        "gilgamesh,"
+      ],
+      "akkadian_readings": [
+        "gilgamesh,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 3,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "GIŠ",
+      "unicode": "𒄑",
+      "borger_number": "267",
+      "name": "GIŠ (wood/tree)",
+      "sumerian_readings": [
+        "giš"
+      ],
+      "akkadian_readings": [
+        "giš"
+      ],
+      "logographic_values": [
+        "GIS",
+        "ISU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "GOS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "GOS",
+      "sumerian_readings": [
+        "gos"
+      ],
+      "akkadian_readings": [
+        "gos"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "GOS'",
+      "unicode": "",
+      "borger_number": "",
+      "name": "GOS'",
+      "sumerian_readings": [
+        "gos'"
+      ],
+      "akkadian_readings": [
+        "gos'"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "GRAIN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "GRAIN",
+      "sumerian_readings": [
+        "grain"
+      ],
+      "akkadian_readings": [
+        "grain"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HA",
+      "unicode": "𒄩",
+      "borger_number": "289",
+      "name": "HA (fish)",
+      "sumerian_readings": [
+        "ha"
+      ],
+      "akkadian_readings": [
+        "ha"
+      ],
+      "logographic_values": [
+        "HA",
+        "KU"
+      ],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "HE",
+      "sumerian_readings": [
+        "he"
+      ],
+      "akkadian_readings": [
+        "he"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HEAVEN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "HEAVEN",
+      "sumerian_readings": [
+        "heaven"
+      ],
+      "akkadian_readings": [
+        "heaven"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HOE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "HOE",
+      "sumerian_readings": [
+        "hoe"
+      ],
+      "akkadian_readings": [
+        "hoe"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HORIZONTAL",
+      "unicode": "𒀸",
+      "borger_number": "582",
+      "name": "HORIZONTAL (AŠ)",
+      "sumerian_readings": [
+        "horizontal"
+      ],
+      "akkadian_readings": [
+        "horizontal"
+      ],
+      "logographic_values": [
+        "AS",
+        "10"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "HUWAWA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "HUWAWA",
+      "sumerian_readings": [
+        "huwawa"
+      ],
+      "akkadian_readings": [
+        "huwawa"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "HYMN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "HYMN",
+      "sumerian_readings": [
+        "hymn"
+      ],
+      "akkadian_readings": [
+        "hymn"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I",
+      "sumerian_readings": [
+        "i"
+      ],
+      "akkadian_readings": [
+        "i"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-LI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-LI",
+      "sumerian_readings": [
+        "i-li"
+      ],
+      "akkadian_readings": [
+        "i-li"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 14,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-NA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-NA",
+      "sumerian_readings": [
+        "i-na"
+      ],
+      "akkadian_readings": [
+        "i-na"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 26,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-NA-LIB-BI-ŠU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-NA-LIB-BI-ŠU",
+      "sumerian_readings": [
+        "i-na-lib-bi-šu"
+      ],
+      "akkadian_readings": [
+        "i-na-lib-bi-šu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-NA-MA-ŠU-ŠU-MA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-NA-MA-ŠU-ŠU-MA",
+      "sumerian_readings": [
+        "i-na-ma-šu-šu-ma"
+      ],
+      "akkadian_readings": [
+        "i-na-ma-šu-šu-ma"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-NA-ŠI-IḪ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-NA-ŠI-IḪ",
+      "sumerian_readings": [
+        "i-na-ši-iḫ"
+      ],
+      "akkadian_readings": [
+        "i-na-ši-iḫ"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 19,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "I-NA-ŠÚ-ŠU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "I-NA-ŠÚ-ŠU",
+      "sumerian_readings": [
+        "i-na-šú-šu"
+      ],
+      "akkadian_readings": [
+        "i-na-šú-šu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "IN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "IN",
+      "sumerian_readings": [
+        "in"
+      ],
+      "akkadian_readings": [
+        "in"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "INANNA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "INANNA",
+      "sumerian_readings": [
+        "inanna"
+      ],
+      "akkadian_readings": [
+        "inanna"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 5,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "INANNA'S",
+      "unicode": "",
+      "borger_number": "",
+      "name": "INANNA'S",
+      "sumerian_readings": [
+        "inanna's"
+      ],
+      "akkadian_readings": [
+        "inanna's"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "INSTRUCTIONS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "INSTRUCTIONS",
+      "sumerian_readings": [
+        "instructions"
+      ],
+      "akkadian_readings": [
+        "instructions"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "JOURNEYE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "JOURNEYE",
+      "sumerian_readings": [
+        "journeye"
+      ],
+      "akkadian_readings": [
+        "journeye"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "K",
+      "unicode": "",
+      "borger_number": "",
+      "name": "K",
+      "sumerian_readings": [
+        "k"
+      ],
+      "akkadian_readings": [
+        "k"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "KA",
+      "unicode": "𒅗",
+      "borger_number": "213",
+      "name": "KA (mouth)",
+      "sumerian_readings": [
+        "ka"
+      ],
+      "akkadian_readings": [
+        "ka"
+      ],
+      "logographic_values": [
+        "KA",
+        "PU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "KI",
+      "unicode": "𒆠",
+      "borger_number": "214",
+      "name": "KI (earth/place)",
+      "sumerian_readings": [
+        "ki",
+        "gi",
+        "ge"
+      ],
+      "akkadian_readings": [
+        "erṣetu",
+        "qāqqaru"
+      ],
+      "logographic_values": [
+        "KI",
+        "E2"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "KISH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "KISH",
+      "sumerian_readings": [
+        "kish"
+      ],
+      "akkadian_readings": [
+        "kish"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LA",
+      "unicode": "𒆷",
+      "borger_number": "349",
+      "name": "LA (to hang)",
+      "sumerian_readings": [
+        "la"
+      ],
+      "akkadian_readings": [
+        "la"
+      ],
+      "logographic_values": [
+        "LA"
+      ],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LABOR,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LABOR,",
+      "sumerian_readings": [
+        "labor,"
+      ],
+      "akkadian_readings": [
+        "labor,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LAMENT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LAMENT",
+      "sumerian_readings": [
+        "lament"
+      ],
+      "akkadian_readings": [
+        "lament"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LARSA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LARSA",
+      "sumerian_readings": [
+        "larsa"
+      ],
+      "akkadian_readings": [
+        "larsa"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LATE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LATE",
+      "sumerian_readings": [
+        "late"
+      ],
+      "akkadian_readings": [
+        "late"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LB",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LB",
+      "sumerian_readings": [
+        "lb"
+      ],
+      "akkadian_readings": [
+        "lb"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LEGAL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LEGAL",
+      "sumerian_readings": [
+        "legal"
+      ],
+      "akkadian_readings": [
+        "legal"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 29,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LETTER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LETTER",
+      "sumerian_readings": [
+        "letter"
+      ],
+      "akkadian_readings": [
+        "letter"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 28,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LEXICAL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LEXICAL",
+      "sumerian_readings": [
+        "lexical"
+      ],
+      "akkadian_readings": [
+        "lexical"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 30,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LI",
+      "unicode": "𒇷",
+      "borger_number": "462",
+      "name": "LI (oil)",
+      "sumerian_readings": [
+        "li"
+      ],
+      "akkadian_readings": [
+        "li"
+      ],
+      "logographic_values": [
+        "LI",
+        "I"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "LIB-BI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LIB-BI",
+      "sumerian_readings": [
+        "lib-bi"
+      ],
+      "akkadian_readings": [
+        "lib-bi"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 20,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LIB-BI-ŠÚ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LIB-BI-ŠÚ",
+      "sumerian_readings": [
+        "lib-bi-šú"
+      ],
+      "akkadian_readings": [
+        "lib-bi-šú"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LISTING",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LISTING",
+      "sumerian_readings": [
+        "listing"
+      ],
+      "akkadian_readings": [
+        "listing"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LITERARY",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LITERARY",
+      "sumerian_readings": [
+        "literary"
+      ],
+      "akkadian_readings": [
+        "literary"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 29,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LOR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LOR",
+      "sumerian_readings": [
+        "lor"
+      ],
+      "akkadian_readings": [
+        "lor"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 5,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LUGAL",
+      "unicode": "𒈗",
+      "borger_number": "577",
+      "name": "LUGAL (king)",
+      "sumerian_readings": [
+        "lugal"
+      ],
+      "akkadian_readings": [
+        "šarru"
+      ],
+      "logographic_values": [
+        "LUGAL",
+        "SAR"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "LUGAL-BAN-A",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LUGAL-BAN-A",
+      "sumerian_readings": [
+        "lugal-ban-a"
+      ],
+      "akkadian_readings": [
+        "lugal-ban-a"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "LUGALBANA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "LUGALBANA",
+      "sumerian_readings": [
+        "lugalbana"
+      ],
+      "akkadian_readings": [
+        "lugalbana"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MA",
+      "unicode": "𒈠",
+      "borger_number": "163",
+      "name": "MA (ship/land)",
+      "sumerian_readings": [
+        "ma",
+        "ma2"
+      ],
+      "akkadian_readings": [
+        "aš",
+        "aš2"
+      ],
+      "logographic_values": [
+        "MA",
+        "AS"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "MAH",
+      "unicode": "𒈤",
+      "borger_number": "169",
+      "name": "MAH (great/exalted)",
+      "sumerian_readings": [
+        "mah"
+      ],
+      "akkadian_readings": [
+        "mah"
+      ],
+      "logographic_values": [
+        "MAH"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "MANN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MANN",
+      "sumerian_readings": [
+        "mann"
+      ],
+      "akkadian_readings": [
+        "mann"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MATHEMATICAL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MATHEMATICAL",
+      "sumerian_readings": [
+        "mathematical"
+      ],
+      "akkadian_readings": [
+        "mathematical"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 28,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MB",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MB",
+      "sumerian_readings": [
+        "mb"
+      ],
+      "akkadian_readings": [
+        "mb"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MEN,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MEN,",
+      "sumerian_readings": [
+        "men,"
+      ],
+      "akkadian_readings": [
+        "men,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MEŠ",
+      "unicode": "𒈨𒌍",
+      "borger_number": "552",
+      "name": "MEŠ (plural)",
+      "sumerian_readings": [
+        "meš"
+      ],
+      "akkadian_readings": [
+        "meš"
+      ],
+      "logographic_values": [
+        "MES",
+        "HI.A"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "MIN",
+      "unicode": "𒈫",
+      "borger_number": "173",
+      "name": "MIN (two)",
+      "sumerian_readings": [
+        "min"
+      ],
+      "akkadian_readings": [
+        "min"
+      ],
+      "logographic_values": [
+        "MIN",
+        "SENA"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "MOTIFS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MOTIFS",
+      "sumerian_readings": [
+        "motifs"
+      ],
+      "akkadian_readings": [
+        "motifs"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MOUNTAIN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MOUNTAIN",
+      "sumerian_readings": [
+        "mountain"
+      ],
+      "akkadian_readings": [
+        "mountain"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "MU",
+      "unicode": "𒈬",
+      "borger_number": "159",
+      "name": "MU (name/year)",
+      "sumerian_readings": [
+        "mu"
+      ],
+      "akkadian_readings": [
+        "mu"
+      ],
+      "logographic_values": [
+        "MU",
+        "SIM"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "MU-U₃-MU-U₃",
+      "unicode": "",
+      "borger_number": "",
+      "name": "MU-U₃-MU-U₃",
+      "sumerian_readings": [
+        "mu-u₃-mu-u₃"
+      ],
+      "akkadian_readings": [
+        "mu-u₃-mu-u₃"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NA",
+      "unicode": "𒈾",
+      "borger_number": "222",
+      "name": "NA (man/incense)",
+      "sumerian_readings": [
+        "na"
+      ],
+      "akkadian_readings": [
+        "na"
+      ],
+      "logographic_values": [
+        "NA"
+      ],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NA-BU-Ú",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NA-BU-Ú",
+      "sumerian_readings": [
+        "na-bu-ú"
+      ],
+      "akkadian_readings": [
+        "na-bu-ú"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NAM",
+      "unicode": "𒉆",
+      "borger_number": "232",
+      "name": "NAM (destiny)",
+      "sumerian_readings": [
+        "nam"
+      ],
+      "akkadian_readings": [
+        "nam"
+      ],
+      "logographic_values": [
+        "NAM",
+        "SIMAT"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "NAME",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NAME",
+      "sumerian_readings": [
+        "name"
+      ],
+      "akkadian_readings": [
+        "name"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NB",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NB",
+      "sumerian_readings": [
+        "nb"
+      ],
+      "akkadian_readings": [
+        "nb"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NETHERWORL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NETHERWORL",
+      "sumerian_readings": [
+        "netherworl"
+      ],
+      "akkadian_readings": [
+        "netherworl"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 4,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NGS,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NGS,",
+      "sumerian_readings": [
+        "ngs,"
+      ],
+      "akkadian_readings": [
+        "ngs,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NI",
+      "unicode": "𒉌",
+      "borger_number": "712",
+      "name": "NI (self/fear)",
+      "sumerian_readings": [
+        "ni",
+        "ni2",
+        "ni3"
+      ],
+      "akkadian_readings": [
+        "aššu"
+      ],
+      "logographic_values": [
+        "NI"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "NI2",
+      "unicode": "𒉈",
+      "borger_number": "713",
+      "name": "NI2 (fear)",
+      "sumerian_readings": [
+        "ni2"
+      ],
+      "akkadian_readings": [
+        "ni2"
+      ],
+      "logographic_values": [
+        "NI2"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "NIN",
+      "unicode": "𒎏",
+      "borger_number": "221",
+      "name": "NIN (lady/queen)",
+      "sumerian_readings": [
+        "nin"
+      ],
+      "akkadian_readings": [
+        "nin"
+      ],
+      "logographic_values": [
+        "NIN",
+        "BELTU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "NINDA",
+      "unicode": "𒃻",
+      "borger_number": "398",
+      "name": "NINDA (bread)",
+      "sumerian_readings": [
+        "ninda"
+      ],
+      "akkadian_readings": [
+        "ninda"
+      ],
+      "logographic_values": [
+        "NINDA",
+        "AKALU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "NINEVEH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NINEVEH",
+      "sumerian_readings": [
+        "nineveh"
+      ],
+      "akkadian_readings": [
+        "nineveh"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NINHURSAGA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NINHURSAGA",
+      "sumerian_readings": [
+        "ninhursaga"
+      ],
+      "akkadian_readings": [
+        "ninhursaga"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NINKASI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NINKASI",
+      "sumerian_readings": [
+        "ninkasi"
+      ],
+      "akkadian_readings": [
+        "ninkasi"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NINTUR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NINTUR",
+      "sumerian_readings": [
+        "nintur"
+      ],
+      "akkadian_readings": [
+        "nintur"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NIPPUR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NIPPUR",
+      "sumerian_readings": [
+        "nippur"
+      ],
+      "akkadian_readings": [
+        "nippur"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NOT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "NOT",
+      "sumerian_readings": [
+        "not"
+      ],
+      "akkadian_readings": [
+        "not"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "NUN",
+      "unicode": "𒉣",
+      "borger_number": "217",
+      "name": "NUN (prince)",
+      "sumerian_readings": [
+        "nun"
+      ],
+      "akkadian_readings": [
+        "nun"
+      ],
+      "logographic_values": [
+        "NUN"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "O",
+      "unicode": "",
+      "borger_number": "",
+      "name": "O",
+      "sumerian_readings": [
+        "o"
+      ],
+      "akkadian_readings": [
+        "o"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "OB",
+      "unicode": "",
+      "borger_number": "",
+      "name": "OB",
+      "sumerian_readings": [
+        "ob"
+      ],
+      "akkadian_readings": [
+        "ob"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "OF",
+      "unicode": "",
+      "borger_number": "",
+      "name": "OF",
+      "sumerian_readings": [
+        "of"
+      ],
+      "akkadian_readings": [
+        "of"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 12,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "OL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "OL",
+      "sumerian_readings": [
+        "ol"
+      ],
+      "akkadian_readings": [
+        "ol"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "OL_AKKAIAN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "OL_AKKAIAN",
+      "sumerian_readings": [
+        "ol_akkaian"
+      ],
+      "akkadian_readings": [
+        "ol_akkaian"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "PA",
+      "unicode": "𒉺",
+      "borger_number": "240",
+      "name": "PA (chief)",
+      "sumerian_readings": [
+        "pa"
+      ],
+      "akkadian_readings": [
+        "pa"
+      ],
+      "logographic_values": [
+        "PA",
+        "RABU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "PA-NI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "PA-NI",
+      "sumerian_readings": [
+        "pa-ni"
+      ],
+      "akkadian_readings": [
+        "pa-ni"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 13,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "PEOPLE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "PEOPLE",
+      "sumerian_readings": [
+        "people"
+      ],
+      "akkadian_readings": [
+        "people"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "PLOUGH",
+      "unicode": "",
+      "borger_number": "",
+      "name": "PLOUGH",
+      "sumerian_readings": [
+        "plough"
+      ],
+      "akkadian_readings": [
+        "plough"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "PRIEST",
+      "unicode": "",
+      "borger_number": "",
+      "name": "PRIEST",
+      "sumerian_readings": [
+        "priest"
+      ],
+      "akkadian_readings": [
+        "priest"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "PURE,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "PURE,",
+      "sumerian_readings": [
+        "pure,"
+      ],
+      "akkadian_readings": [
+        "pure,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "R",
+      "unicode": "",
+      "borger_number": "",
+      "name": "R",
+      "sumerian_readings": [
+        "r"
+      ],
+      "akkadian_readings": [
+        "r"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RA",
+      "unicode": "𒊏",
+      "borger_number": "251",
+      "name": "RA (to beat)",
+      "sumerian_readings": [
+        "ra"
+      ],
+      "akkadian_readings": [
+        "ra"
+      ],
+      "logographic_values": [
+        "RA",
+        "MAHASU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "RA-BI-IQ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "RA-BI-IQ",
+      "sumerian_readings": [
+        "ra-bi-iq"
+      ],
+      "akkadian_readings": [
+        "ra-bi-iq"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RE",
+      "unicode": "𒊑",
+      "borger_number": "254",
+      "name": "RE (to send)",
+      "sumerian_readings": [
+        "re"
+      ],
+      "akkadian_readings": [
+        "re"
+      ],
+      "logographic_values": [
+        "RE"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "REBELLION,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "REBELLION,",
+      "sumerian_readings": [
+        "rebellion,"
+      ],
+      "akkadian_readings": [
+        "rebellion,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RESTLESS,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "RESTLESS,",
+      "sumerian_readings": [
+        "restless,"
+      ],
+      "akkadian_readings": [
+        "restless,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RI",
+      "unicode": "𒊑",
+      "borger_number": "254",
+      "name": "RI (to send)",
+      "sumerian_readings": [
+        "ri"
+      ],
+      "akkadian_readings": [
+        "ri"
+      ],
+      "logographic_values": [
+        "RI"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "RIMB",
+      "unicode": "",
+      "borger_number": "",
+      "name": "RIMB",
+      "sumerian_readings": [
+        "rimb"
+      ],
+      "akkadian_readings": [
+        "rimb"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 17,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RINAP",
+      "unicode": "",
+      "borger_number": "",
+      "name": "RINAP",
+      "sumerian_readings": [
+        "rinap"
+      ],
+      "akkadian_readings": [
+        "rinap"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 17,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ROYAL",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ROYAL",
+      "sumerian_readings": [
+        "royal"
+      ],
+      "akkadian_readings": [
+        "royal"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 28,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "RU",
+      "unicode": "𒊒",
+      "borger_number": "260",
+      "name": "RU (to dedicate)",
+      "sumerian_readings": [
+        "ru"
+      ],
+      "akkadian_readings": [
+        "ru"
+      ],
+      "logographic_values": [
+        "RU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "S",
+      "unicode": "",
+      "borger_number": "",
+      "name": "S",
+      "sumerian_readings": [
+        "s"
+      ],
+      "akkadian_readings": [
+        "s"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SA",
+      "unicode": "𒊓",
+      "borger_number": "265",
+      "name": "SA (sinew/muscle)",
+      "sumerian_readings": [
+        "sa"
+      ],
+      "akkadian_readings": [
+        "sa"
+      ],
+      "logographic_values": [
+        "SA",
+        "GID"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "SAAO",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SAAO",
+      "sumerian_readings": [
+        "saao"
+      ],
+      "akkadian_readings": [
+        "saao"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 17,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SAG",
+      "unicode": "𒊕",
+      "borger_number": "184",
+      "name": "SAG (head)",
+      "sumerian_readings": [
+        "sag"
+      ],
+      "akkadian_readings": [
+        "sag"
+      ],
+      "logographic_values": [
+        "SAG",
+        "RAS"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "SAW",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SAW",
+      "sumerian_readings": [
+        "saw"
+      ],
+      "akkadian_readings": [
+        "saw"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SE",
+      "unicode": "𒋛",
+      "borger_number": "283",
+      "name": "SE (grain/barley)",
+      "sumerian_readings": [
+        "se"
+      ],
+      "akkadian_readings": [
+        "se"
+      ],
+      "logographic_values": [
+        "SE",
+        "SE"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "SERIES",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SERIES",
+      "sumerian_readings": [
+        "series"
+      ],
+      "akkadian_readings": [
+        "series"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SHPPAK",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SHPPAK",
+      "sumerian_readings": [
+        "shppak"
+      ],
+      "akkadian_readings": [
+        "shppak"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SI",
+      "unicode": "𒋛",
+      "borger_number": "283",
+      "name": "SI (horn)",
+      "sumerian_readings": [
+        "si"
+      ],
+      "akkadian_readings": [
+        "si"
+      ],
+      "logographic_values": [
+        "SI",
+        "QARNU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "SIPPAR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SIPPAR",
+      "sumerian_readings": [
+        "sippar"
+      ],
+      "akkadian_readings": [
+        "sippar"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 25,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SPOKE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SPOKE",
+      "sumerian_readings": [
+        "spoke"
+      ],
+      "akkadian_readings": [
+        "spoke"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SU",
+      "unicode": "𒋢",
+      "borger_number": "285",
+      "name": "SU (hand)",
+      "sumerian_readings": [
+        "su"
+      ],
+      "akkadian_readings": [
+        "su"
+      ],
+      "logographic_values": [
+        "SU",
+        "QATU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "SUMER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SUMER",
+      "sumerian_readings": [
+        "sumer"
+      ],
+      "akkadian_readings": [
+        "sumer"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SUMMER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SUMMER",
+      "sumerian_readings": [
+        "summer"
+      ],
+      "akkadian_readings": [
+        "summer"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "SURPASSING",
+      "unicode": "",
+      "borger_number": "",
+      "name": "SURPASSING",
+      "sumerian_readings": [
+        "surpassing"
+      ],
+      "akkadian_readings": [
+        "surpassing"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "T",
+      "unicode": "",
+      "borger_number": "",
+      "name": "T",
+      "sumerian_readings": [
+        "t"
+      ],
+      "akkadian_readings": [
+        "t"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "TA",
+      "unicode": "𒋫",
+      "borger_number": "313",
+      "name": "TA (dagger)",
+      "sumerian_readings": [
+        "ta"
+      ],
+      "akkadian_readings": [
+        "ta"
+      ],
+      "logographic_values": [
+        "TA",
+        "PATU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "TEXT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "TEXT",
+      "sumerian_readings": [
+        "text"
+      ],
+      "akkadian_readings": [
+        "text"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 100,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "THE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "THE",
+      "sumerian_readings": [
+        "the"
+      ],
+      "akkadian_readings": [
+        "the"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 26,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "THEY",
+      "unicode": "",
+      "borger_number": "",
+      "name": "THEY",
+      "sumerian_readings": [
+        "they"
+      ],
+      "akkadian_readings": [
+        "they"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "TI",
+      "unicode": "𒋾",
+      "borger_number": "321",
+      "name": "TI (arrow/life)",
+      "sumerian_readings": [
+        "ti"
+      ],
+      "akkadian_readings": [
+        "ti"
+      ],
+      "logographic_values": [
+        "TI",
+        "BALATU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "TO",
+      "unicode": "",
+      "borger_number": "",
+      "name": "TO",
+      "sumerian_readings": [
+        "to"
+      ],
+      "akkadian_readings": [
+        "to"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 7,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "TU",
+      "unicode": "𒌅",
+      "borger_number": "448",
+      "name": "TU (to beat)",
+      "sumerian_readings": [
+        "tu"
+      ],
+      "akkadian_readings": [
+        "tu"
+      ],
+      "logographic_values": [
+        "TU",
+        "MAHASU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "U",
+      "unicode": "𒌋",
+      "borger_number": "582",
+      "name": "U (ten)",
+      "sumerian_readings": [
+        "u"
+      ],
+      "akkadian_readings": [
+        "u"
+      ],
+      "logographic_values": [
+        "U",
+        "AS"
+      ],
+      "periods": [],
+      "corpus_frequency": 200,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "U2",
+      "unicode": "𒌋𒌋",
+      "borger_number": "582",
+      "name": "U2 (plant)",
+      "sumerian_readings": [
+        "u2"
+      ],
+      "akkadian_readings": [
+        "u2"
+      ],
+      "logographic_values": [
+        "U2"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "U3",
+      "unicode": "𒀇",
+      "borger_number": "3",
+      "name": "U3 (sleep)",
+      "sumerian_readings": [
+        "u3"
+      ],
+      "akkadian_readings": [
+        "u3"
+      ],
+      "logographic_values": [
+        "U3"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "U4",
+      "unicode": "𒌓",
+      "borger_number": "450",
+      "name": "U4 (day/UD)",
+      "sumerian_readings": [
+        "u4"
+      ],
+      "akkadian_readings": [
+        "u4"
+      ],
+      "logographic_values": [
+        "U4",
+        "UD"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "U5",
+      "unicode": "𒁁",
+      "borger_number": "67",
+      "name": "U5 (to ride)",
+      "sumerian_readings": [
+        "u5"
+      ],
+      "akkadian_readings": [
+        "u5"
+      ],
+      "logographic_values": [
+        "U5"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "UD",
+      "unicode": "𒌓",
+      "borger_number": "450",
+      "name": "UD (sun/day)",
+      "sumerian_readings": [
+        "ud"
+      ],
+      "akkadian_readings": [
+        "ud"
+      ],
+      "logographic_values": [
+        "UD",
+        "UTU",
+        "YAM"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "UNUG",
+      "unicode": "𒀕",
+      "borger_number": "120",
+      "name": "UNUG (Uruk)",
+      "sumerian_readings": [
+        "unug"
+      ],
+      "akkadian_readings": [
+        "unug"
+      ],
+      "logographic_values": [
+        "UNUG",
+        "URUK"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "UR",
+      "unicode": "𒌨",
+      "borger_number": "305",
+      "name": "UR (dog/lion)",
+      "sumerian_readings": [
+        "ur"
+      ],
+      "akkadian_readings": [
+        "ur"
+      ],
+      "logographic_values": [
+        "UR",
+        "UR"
+      ],
+      "periods": [],
+      "corpus_frequency": 27,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "URIII",
+      "unicode": "",
+      "borger_number": "",
+      "name": "URIII",
+      "sumerian_readings": [
+        "uriii"
+      ],
+      "akkadian_readings": [
+        "uriii"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 22,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "URU",
+      "unicode": "𒌷",
+      "borger_number": "305",
+      "name": "URU (city)",
+      "sumerian_readings": [
+        "uru"
+      ],
+      "akkadian_readings": [
+        "ālu"
+      ],
+      "logographic_values": [
+        "URU",
+        "ALU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "URUK",
+      "unicode": "",
+      "borger_number": "",
+      "name": "URUK",
+      "sumerian_readings": [
+        "uruk"
+      ],
+      "akkadian_readings": [
+        "uruk"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 3,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "URUK,",
+      "unicode": "",
+      "borger_number": "",
+      "name": "URUK,",
+      "sumerian_readings": [
+        "uruk,"
+      ],
+      "akkadian_readings": [
+        "uruk,"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "US",
+      "unicode": "𒍑",
+      "borger_number": "358",
+      "name": "US (to follow)",
+      "sumerian_readings": [
+        "us"
+      ],
+      "akkadian_readings": [
+        "us"
+      ],
+      "logographic_values": [
+        "US"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "UTNAPISHTIM",
+      "unicode": "",
+      "borger_number": "",
+      "name": "UTNAPISHTIM",
+      "sumerian_readings": [
+        "utnapishtim"
+      ],
+      "akkadian_readings": [
+        "utnapishtim"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "U₂-ŠA-AB-BI-ŠU-MA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "U₂-ŠA-AB-BI-ŠU-MA",
+      "sumerian_readings": [
+        "u₂-ša-ab-bi-šu-ma"
+      ],
+      "akkadian_readings": [
+        "u₂-ša-ab-bi-šu-ma"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "VERTICAL",
+      "unicode": "𒁹",
+      "borger_number": "582",
+      "name": "VERTICAL (DIŠ)",
+      "sumerian_readings": [
+        "vertical"
+      ],
+      "akkadian_readings": [
+        "vertical"
+      ],
+      "logographic_values": [
+        "DIS",
+        "1"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "W",
+      "unicode": "",
+      "borger_number": "",
+      "name": "W",
+      "sumerian_readings": [
+        "w"
+      ],
+      "akkadian_readings": [
+        "w"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WAGE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WAGE",
+      "sumerian_readings": [
+        "wage"
+      ],
+      "akkadian_readings": [
+        "wage"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WANTS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WANTS",
+      "sumerian_readings": [
+        "wants"
+      ],
+      "akkadian_readings": [
+        "wants"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WAR",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WAR",
+      "sumerian_readings": [
+        "war"
+      ],
+      "akkadian_readings": [
+        "war"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WAS",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WAS",
+      "sumerian_readings": [
+        "was"
+      ],
+      "akkadian_readings": [
+        "was"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WEDGE",
+      "unicode": "𒁹",
+      "borger_number": "582",
+      "name": "WEDGE (basic)",
+      "sumerian_readings": [
+        "wedge"
+      ],
+      "akkadian_readings": [
+        "wedge"
+      ],
+      "logographic_values": [
+        "1",
+        "DIS"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "WERE",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WERE",
+      "sumerian_readings": [
+        "were"
+      ],
+      "akkadian_readings": [
+        "were"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WHEN",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WHEN",
+      "sumerian_readings": [
+        "when"
+      ],
+      "akkadian_readings": [
+        "when"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WHO",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WHO",
+      "sumerian_readings": [
+        "who"
+      ],
+      "akkadian_readings": [
+        "who"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WINTER",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WINTER",
+      "sumerian_readings": [
+        "winter"
+      ],
+      "akkadian_readings": [
+        "winter"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "WORK",
+      "unicode": "",
+      "borger_number": "",
+      "name": "WORK",
+      "sumerian_readings": [
+        "work"
+      ],
+      "akkadian_readings": [
+        "work"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "X",
+      "unicode": "",
+      "borger_number": "",
+      "name": "X",
+      "sumerian_readings": [
+        "x"
+      ],
+      "akkadian_readings": [
+        "x"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "Z",
+      "unicode": "",
+      "borger_number": "",
+      "name": "Z",
+      "sumerian_readings": [
+        "z"
+      ],
+      "akkadian_readings": [
+        "z"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ZA",
+      "unicode": "𒍝",
+      "borger_number": "368",
+      "name": "ZA (gem/bead)",
+      "sumerian_readings": [
+        "za"
+      ],
+      "akkadian_readings": [
+        "za"
+      ],
+      "logographic_values": [
+        "ZA"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "ZAK-RAT",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ZAK-RAT",
+      "sumerian_readings": [
+        "zak-rat"
+      ],
+      "akkadian_readings": [
+        "zak-rat"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ZI",
+      "unicode": "𒍣",
+      "borger_number": "372",
+      "name": "ZI (to rise)",
+      "sumerian_readings": [
+        "zi"
+      ],
+      "akkadian_readings": [
+        "zi"
+      ],
+      "logographic_values": [
+        "ZI",
+        "BALATU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "ZU",
+      "unicode": "𒍪",
+      "borger_number": "377",
+      "name": "ZU (to know)",
+      "sumerian_readings": [
+        "zu"
+      ],
+      "akkadian_readings": [
+        "zu"
+      ],
+      "logographic_values": [
+        "ZU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "ZU2",
+      "unicode": "𒍫",
+      "borger_number": "378",
+      "name": "ZU2 (tooth)",
+      "sumerian_readings": [
+        "zu2"
+      ],
+      "akkadian_readings": [
+        "zu2"
+      ],
+      "logographic_values": [
+        "ZU2",
+        "SU"
+      ],
+      "periods": [],
+      "corpus_frequency": 0,
+      "confidence_score": 0.5
+    },
+    {
+      "sign_id": "Ù",
+      "unicode": "",
+      "borger_number": "",
+      "name": "Ù",
+      "sumerian_readings": [
+        "ù"
+      ],
+      "akkadian_readings": [
+        "ù"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠA",
+      "sumerian_readings": [
+        "ša"
+      ],
+      "akkadian_readings": [
+        "ša"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 3,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠA-MA-MU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠA-MA-MU",
+      "sumerian_readings": [
+        "ša-ma-mu"
+      ],
+      "akkadian_readings": [
+        "ša-ma-mu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠAP-LIŠ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠAP-LIŠ",
+      "sumerian_readings": [
+        "šap-liš"
+      ],
+      "akkadian_readings": [
+        "šap-liš"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠA₃-ŠÚ-ŠU",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠA₃-ŠÚ-ŠU",
+      "sumerian_readings": [
+        "ša₃-šú-šu"
+      ],
+      "akkadian_readings": [
+        "ša₃-šú-šu"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠU-MA",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠU-MA",
+      "sumerian_readings": [
+        "šu-ma"
+      ],
+      "akkadian_readings": [
+        "šu-ma"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠU-ME-EŠ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠU-ME-EŠ",
+      "sumerian_readings": [
+        "šu-me-eš"
+      ],
+      "akkadian_readings": [
+        "šu-me-eš"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠU-RI-IQ-QÍ",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠU-RI-IQ-QÍ",
+      "sumerian_readings": [
+        "šu-ri-iq-qí"
+      ],
+      "akkadian_readings": [
+        "šu-ri-iq-qí"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 2,
+      "confidence_score": 1.0
+    },
+    {
+      "sign_id": "ŠÍ-IP-RI",
+      "unicode": "",
+      "borger_number": "",
+      "name": "ŠÍ-IP-RI",
+      "sumerian_readings": [
+        "ší-ip-ri"
+      ],
+      "akkadian_readings": [
+        "ší-ip-ri"
+      ],
+      "logographic_values": [],
+      "periods": [],
+      "corpus_frequency": 1,
+      "confidence_score": 1.0
+    }
+  ]
+}

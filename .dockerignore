@@ -1,0 +1,66 @@
+# Git
+.git
+.gitignore
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (large, mounted at runtime)
+*.db
+*.db-journal
+/data/*.db
+/data/export/*
+/data/images/*
+/data/corpus_cache/*
+
+# Logs
+*.log
+logs/
+
+# Test artifacts
+test-results/
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Distribution
+build/
+dist/
+*.egg-info/
+*.whl
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Documentation build
+site/
+docs/_build/
+
+# Type checking
+.mypy_cache/
+
+# Docker
+.docker/
+docker-compose.override.yml

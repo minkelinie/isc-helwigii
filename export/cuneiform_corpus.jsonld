@@ -1,0 +1,95 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "cuneiform": "http://oracc.org/ontology#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "https://signumcore.org/ox-stealth/LEGACY-e3c2faae1300e3de",
+      "@type": [
+        "cuneiform:Tablet",
+        "schema:CreativeWork"
+      ],
+      "schema:identifier": "LEGACY-e3c2faae1300e3de",
+      "dcterms:source": "CDLI",
+      "dcterms:title": "Gilgamesh Tablet XI (Zondvloed)",
+      "cuneiform:cuneiformText": "𒀭   𒂗   𒆤   𒀀   𒈾   𒈗   𒂊",
+      "cuneiform:transliteration": "A I :",
+      "cuneiform:language": "Unknown",
+      "cuneiform:period": "Uncertain",
+      "cuneiform:genre": "Myth/Epic",
+      "cuneiform:motifTags": [
+        "uncategorized"
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "https://signumcore.org/ox-stealth/pipeline",
+        "@type": "prov:Activity"
+      },
+      "schema:dateCreated": "2026-08-22T16:52:24Z",
+      "cuneiform:hasEmbedding": {
+        "@type": "cuneiform:EmbeddingVector",
+        "cuneiform:model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "cuneiform:dimension": 768
+      }
+    },
+    {
+      "@id": "https://signumcore.org/ox-stealth/LEGACY-a157725c50f3c3a2",
+      "@type": [
+        "cuneiform:Tablet",
+        "schema:CreativeWork"
+      ],
+      "schema:identifier": "LEGACY-a157725c50f3c3a2",
+      "dcterms:source": "ETCSL",
+      "dcterms:title": "transliteration",
+      "cuneiform:cuneiformText": "n . n . b .",
+      "cuneiform:transliteration": "Z i e   O x f o r d   w e b s i t e",
+      "cuneiform:language": "Sumerian",
+      "cuneiform:period": "Uncertain",
+      "cuneiform:genre": "Unknown",
+      "cuneiform:motifTags": [
+        "uncategorized"
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "https://signumcore.org/ox-stealth/pipeline",
+        "@type": "prov:Activity"
+      },
+      "schema:dateCreated": "2026-08-22T16:52:24Z",
+      "cuneiform:hasEmbedding": {
+        "@type": "cuneiform:EmbeddingVector",
+        "cuneiform:model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "cuneiform:dimension": 768
+      }
+    },
+    {
+      "@id": "https://signumcore.org/ox-stealth/LEGACY-75400392a6ae8077",
+      "@type": [
+        "cuneiform:Tablet",
+        "schema:CreativeWork"
+      ],
+      "schema:identifier": "LEGACY-75400392a6ae8077",
+      "dcterms:source": "eBL Fragmentarium",
+      "dcterms:title": "Enuma Elish Reconstructie (Demo)",
+      "cuneiform:cuneiformText": "𒀭   𒊹",
+      "cuneiform:transliteration": "A I :",
+      "cuneiform:language": "Unknown",
+      "cuneiform:period": "Uncertain",
+      "cuneiform:genre": "Myth/Epic",
+      "cuneiform:motifTags": [
+        "uncategorized"
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "https://signumcore.org/ox-stealth/pipeline",
+        "@type": "prov:Activity"
+      },
+      "schema:dateCreated": "2026-08-22T16:52:24Z",
+      "cuneiform:hasEmbedding": {
+        "@type": "cuneiform:EmbeddingVector",
+        "cuneiform:model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "cuneiform:dimension": 768
+      }
+    }
+  ]
+}
