@@ -1,223 +1,87 @@
-# I.S.C. Helwigii — Cuneiform Analysis Platform
+# I.S.C. Helwigii
 
-**Invitatio Scripta Cuneiformis Helwigii**  
-*A Classical Frontispiece for Digital Assyriology*
+A local cuneiform research workbench for collecting evidence, annotating passages, reviewing interpretations, comparing witnesses and measurements, and exporting reproducible experiments.
 
----
+This is an **alpha research workbench**. Translation assistance currently retrieves reviewed exact parallel passages. Text and material comparisons and motif networks are exploratory baselines. Automatic sign recognition, trained translation, geometric 3D joins and validated prehistoric ancestry/dating are not included. The application shows this distinction in its capability register.
 
-## Overview
+## Start locally
 
-I.S.C. Helwigii is a comprehensive cuneiform analysis platform combining classical book-cover aesthetics with modern NLP/ML pipelines. It provides:
-
-- **Classical Frontispiece UI** — 3D page-flip animation, Latin inscriptions, scholarly apparatus
-- **Polyphony Engine** — 249 cuneiform signs with Bayesian disambiguation (Dirichlet priors), compound sign decomposition
-- **Neural & Visual Embeddings** — SBERT (384-dim) text embeddings + ORB/BoVW (256-dim) visual features with FAISS indexing
-- **Phylomythology** — Hierarchical clustering (UPGMA), maximum parsimony phylogeny of 23 myth texts across 26 archetypal motifs
-- **Federated Corpus Registry** — 8+ sources (CDLI, ETCSL, ORACC, DCCLT, BDTNS, MIDDLE, RIAO, USER_FRAGMENTS) with streaming index
-- **Active Learning Loop** — Human-in-the-loop corrections with automatic model retraining triggers
-- **FAIR Export** — JSON-LD (schema.org), ATF (CDLI standard), CSV bulk export
-- **6-Tab Streamlit Dashboard** — Codex, Corpus, Signs, Mythology, Active Learning, Export
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        STREAMLIT DASHBOARD                      │
-│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐   │
-│  │ CODEX   │ │ CORPUS  │ │ SIGNS   │ │ MYTHOLOGY│ │ ACTIVE  │   │
-│  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘   │
-│                              ┌─────────┐                         │
-│                              │ EXPORT  │                         │
-│                              └─────────┘                         │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                    ┌─────────┴─────────┐
-                    │   BACKEND CORE    │
-                    │  (Database Pool,  │
-                    │   FAISS Manager,  │
-                    │   Active Learning │
-                    │    Bayesian)      │
-                    └─────────┬─────────┘
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        ▼                     ▼                     ▼
-┌───────────────┐    ┌───────────────┐    ┌───────────────┐
-│  POLYPHONY    │    │  PREBAKED     │    │  CORPUS       │
-│  ENGINE       │    │  EMBEDDINGS   │    │  REGISTRY     │
-│  (n-grams,    │    │  (SBERT +     │    │  (8 sources,  │
-│   Bayesian,   │    │   ORB/BoVW,   │    │   streaming)  │
-│   compounds)  │    │   FAISS)      │    │               │
-└───────────────┘    └───────────────┘    └───────────────┘
-```
-
----
-
-## Quick Start
-
-### Docker (Recommended)
+Python 3.11 or newer is required. The research core uses only the standard library; the interface is an optional dependency. Installation needs internet access once; project workflows subsequently run offline.
 
 ```bash
-# Build and run
-docker-compose up --build -d
-
-# Access dashboard
-open http://localhost:8501
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[ui]"
+isc-helwigii init ./research.db
+isc-helwigii demo ./research.db
+isc-helwigii start ./research.db
 ```
 
-### Local Development
+On Windows, activate with `.venv\Scripts\Activate.ps1` and use `python` instead of `python3`. Windows is a target platform; this version has not yet received a Windows runtime test.
+
+Open http://127.0.0.1:8501 . The server binds to this computer, telemetry is disabled, and no external model is contacted. The three demonstration witnesses are synthetic and visibly labelled. Use a separate project for real research.
+
+## Research workflows
+
+- **Project:** native research JSON, CDLI-style ATF and ORACC catalogue imports; raw source bytes, SHA-256 and rights statements.
+- **Tablets:** source-specific identities, multiple editions, conflicting source fields, attached images/reports/files and source downloads.
+- **Reading:** passage-anchored transliteration, translation, morphology notes, sign regions, motifs, categories, dates and places; alternative interpretations and append-only review.
+- **Comparison:** same-language lexical overlap and token alignment; manual physical-join proposals with evidence.
+- **Materials:** laboratory, method, calibration, reference group, analytes, units and one-sigma uncertainty; component-wise compatible measurement distances.
+- **Myths:** reviewed passage motifs, undirected overlap networks, witness date intervals, competing explanations and falsifiable hypothesis records.
+- **Evaluation:** classification with abstention, composition-family/exact-duplicate grouped splits, counts and confusion matrices.
+- **Experiments and export:** frozen inputs, output, actor, method implementation source and checksum; portable verified project bundles including media.
+
+Review identities are locally entered attribution, not authenticated roles. Accepted annotations are editorial decisions, not automatic scientific validation. Missing data causes abstention. An overlap score is not an ancestry, join or geographic-origin probability.
+
+## Import your data
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run pipeline (one-time setup)
-python train_polyphony_engine.py
-python precompute_global_embeddings.py
-python -m phylomythology_engine
-python sign_detection_engine.py
-
-# Start dashboard
-streamlit run app.py --server.port 8501
+isc-helwigii import ./research.db ./corpus.atf --format atf --source cdli-local-export --license "private research copy"
+isc-helwigii import ./research.db ./catalogue.json --format oracc-catalogue --source oracc-project --license "record actual project terms"
+isc-helwigii import-legacy ./research.db /path/to/legacy.db --source legacy-local --license private --limit 500
 ```
 
----
+The legacy adapter reads a bounded `tablets` query without changing the original database. Original generated labels remain unreviewed metadata. ORACC support currently covers catalogue JSON, not full CDL linguistic editions. ATF support covers artifact headers, language, surface markers and numbered lines; unsupported ATF directives remain in raw source bytes.
 
-## Pipeline Scripts
+## Backup and restore
 
-| Script | Purpose | Output |
-|--------|---------|--------|
-| `train_polyphony_engine.py` | Build n-gram co-occurrence matrices, Bayesian priors, compound signs | `cuneiform_polyphony.json` |
-| `precompute_global_embeddings.py` | Compute SBERT/TF-IDF text embeddings + ORB/BoVW visual features + FAISS index | `prebaked_embeddings/`, `prebaked_sign_knowledge` table |
-| `phylomythology_engine.py` | UPGMA clustering, maximum parsimony phylogeny of 23 myths | `phylo_tree` table, `myth_evolution_tree.png` |
-| `sign_detection_engine.py` | ORB+BoVW sign detection on tablet images | 2219+ detected signs, stroke analysis |
-| `corpus_registry.py` | Federated corpus indexing from 8 sources | `corpus_catalog` table |
-
----
-
-## Data Model (SQLite)
-
-**Core Tables:**
-- `tablets` — 1,218+ tablets from CDLI with transliterations
-- `cuneiform_signs` — 1,847+ individual sign occurrences with bounding boxes
-- `myth_texts` — 23 major Sumerian/Akkadian myth compositions
-- `motif_taxonomy` — 26 archetypal motifs (S1–S8 categories)
-- `motif_instances` — 166 motif occurrences in myth texts
-- `phylo_tree` — 45 phylogenetic tree nodes
-- `corpus_catalog` — 321 entries from 3 federated sources
-- `polyphony_corrections` — Active learning correction log
-- `prebaked_embeddings` — Neural/visual embeddings for fast similarity
-- `prebaked_sign_knowledge` — 249 sign knowledge base entries
-
----
-
-## Key Features
-
-### Polyphony Engine
-- **N-gram Co-occurrence**: Bigram/trigram matrices from 1,847 sign tokens
-- **Bayesian Disambiguation**: Dirichlet-smoothed P(reading \| context)
-- **Compound Signs**: 15 multi-sign compounds with decomposition rules
-- **28 Context Rules**: Positional and collocational disambiguation patterns
-
-### Visual Analysis
-- **ORB Descriptors**: 500 features per image, rotation/scale invariant
-- **BoVW (256-dim)**: K-means vocabulary for visual similarity
-- **Stroke Classification**: 5 stroke types (wedge, vertical, horizontal, diagonal, curve)
-- **Sign Detection**: 2,219+ signs detected across tablet corpus
-
-### Phylomythology
-- **23 Myth Texts**: Atrahasis, Enuma Elish, Gilgamesh, Inanna's Descent, etc.
-- **26 Archetypal Motifs**: Chaoskampf, Flood, Divine Council, Hero's Journey, etc.
-- **UPGMA Clustering**: Hierarchical grouping of myth traditions
-- **Maximum Parsimony**: Phylogenetic tree with 45 nodes
-
----
-
-## API Reference (BackendCore)
-
-```python
-from backend_core import BackendCore, BackendConfig
-
-config = BackendConfig(db_path="/data/cuneiform_master.db")
-backend = BackendCore(config)
-
-# Corpus search
-results = backend.search_corpus("gilgamesh flood", k=10)
-
-# Sign disambiguation
-readings = backend.disambiguate_sequence(["AN", "KI", "LUGAL"])
-
-# Active learning
-backend.submit_correction("AN", "SUM:an", "SUM:ana", "context", "scholar")
-
-# Embeddings
-embeddings = backend.get_embeddings(entry_ids=[1,2,3], entry_type="tablet")
+```bash
+isc-helwigii export ./research.db ./research.zip
+isc-helwigii restore ./research.zip ./restored.db
 ```
 
----
+Both operations require a new destination. Restore verifies archive and evidence checksums, schema guards, SQLite integrity and foreign keys. The zip includes original sources and media, so their usage rights still apply. The source of truth is the SQLite project; do not edit it directly.
 
-## Export Formats
+## Tests and package verification
 
-### JSON-LD (schema.org)
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "Corpus",
-  "name": "I.S.C. Helwigii Corpus",
-  "description": "Federated cuneiform corpus with polyphonic analysis",
-  "hasPart": [...]
-}
+```bash
+python -m pip install -e ".[dev,ui]"
+python -m pytest -q
+ruff check src tests scripts
+python scripts/check_docs.py
+python -m pip wheel --no-deps --no-build-isolation --wheel-dir dist .
+python scripts/check_wheel.py dist/isc_helwigii-2.0.0-py3-none-any.whl
 ```
 
-### ATF (CDLI Standard)
-```atf
-&header
-object = tablet
-provenance = Nippur
-period = Old Babylonian
-&text
-1. dumu AN.KI
-2. lugal-gal
+The wheel check installs without dependencies into a fresh environment and exercises project initialization, demo ingestion, export and restore. CI runs tests, UI interaction tests and wheel checks on Python 3.11/3.12. Version `2.0.0` is inherited package metadata, not a claim of scientific maturity.
+
+## Optional container
+
+```bash
+docker compose config --quiet
+docker compose up --build
 ```
 
-### CSV Bulk
-```csv
-id,source,transliteration,translation,period,museum_number
-1,CDLI,"dumu an.ki","The child of An and Ki","Old Babylonian","P252048"
-```
+The container initializes a new `/data/research.db` in its named volume and serves only host loopback port 8501. Container build/runtime must be checked with a working Docker daemon; successful Compose parsing alone does not verify the image.
 
----
+## Documentation and roadmap
 
-## Requirements
+- [Local research guide](docs/local-research-guide.md)
+- [Product implementation plan and outstanding research validation](docs/superpowers/plans/2026-09-05-local-research-product.md)
+- [Scientific design](docs/plans/2026-09-04-evidence-first-foundation-design.md)
+- [Repository and artifact policy](docs/repository-policy.md)
 
-- Python 3.11+
-- SQLite 3.35+
-- FAISS (faiss-cpu)
-- sentence-transformers (optional, falls back to TF-IDF+SVD)
-- OpenCV (headless)
-- Streamlit 1.35+
-- scikit-learn, numpy, pandas, plotly, networkx, tqdm, Pillow, pyyaml, requests
+Legacy root scripts remain historical experiments and are not the installed application. Code and small fixtures belong in Git; databases and model weights belong in local projects or separately governed artifact storage.
 
----
-
-## License
-
-Academic Research — SignumCore ISMS Project
-
----
-
-## Citation
-
-```
-@software{isc_helwigii_v2,
-  author = {Mink Helwig},
-  title = {I.S.C. Helwigii — Cuneiform Analysis Platform v2.0.0},
-  year = {2026},
-  note = {Academic Production Release — Classical Frontispiece Edition}
-}
-```
-
----
-
-*Aperi Codicem — Open the Codex*
+Existing license declarations conflict between CC-BY-4.0 and MIT. They have been preserved; a formal public release requires an explicit code/data/model licensing decision. This development branch does not relicense imported sources.

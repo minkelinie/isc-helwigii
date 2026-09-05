@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased — local research workbench, 2026-09-05
+
+- Added offline project lifecycle, immutable evidence and edition history, reviewable passage annotations, images and report attachments.
+- Added native JSON, ATF, ORACC catalogue and read-only legacy SQLite imports.
+- Added exploratory textual/material/motif/chronology methods, exact reviewed translation memory, classification evaluation and family-grouped splits.
+- Added reproducible experiment records, verified project bundles and locally bound Streamlit research workspaces.
+- Hardened evidence replacement, schema/backup integrity, translation revision scope and missing-language abstention after independent code review.
+- Reduced base installation to Python standard-library dependencies; the UI is an optional extra.
+- Scientific OCR, trained translation, 3D joins, calibrated material provenance and prehistoric inference remain open research work, not release claims.
+
+> Historical entries below record what earlier releases claimed. The evidence-first audit found that several 2.0.0 capabilities were demonstrations, placeholders, unconnected models, or absent CI. They are not validation statements. The foundation work reports only behavior covered by current tests and artifact checks.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -84,14 +96,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned for 2.1.0
-- [ ] Real API integrations for CDLI/ORACC/ETCSL (replace demo data)
-- [ ] Multi-user authentication (OAuth2/OIDC)
-- [ ] PostgreSQL backend option
-- [ ] REST API for external integrations
-- [ ] Sign detection model training pipeline
-- [ ] Motif detection via LLM (few-shot prompting)
-- [ ] IIIF manifest support for image serving
-- [ ] SPARQL endpoint for knowledge graph
-- [ ] Zenodo DOI auto-minting on release
-- [ ] mkdocs-material documentation site
+### Evidence-first foundation
+
+- Added an installable `isc_helwigii` package with one valid console entrypoint.
+- Added deterministic environment-driven runtime paths.
+- Added read-only database health inspection with explicit legacy schema recognition.
+- Added focused tests, wheel isolation checks, and GitHub Actions configuration.
+- Defined repository boundaries for source, data, models, and generated evidence.
+- Replaced stale setup instructions and marked legacy scientific claims as unvalidated.
