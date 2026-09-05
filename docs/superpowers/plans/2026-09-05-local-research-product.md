@@ -43,7 +43,7 @@ Workflow coverage and scientific validity are separate acceptance criteria. This
 - [x] Batch B: write failing analysis/evaluation tests; implement reproducible baselines and abstention; verify language separation, unit checks, unknown motifs, duplicate leakage and empty metrics.
 - [x] Batch C: write failing backup/CLI tests; implement bundles and research commands; verify export/restore equivalence and tamper refusal; run installed package contract.
 - [x] Batch D: implement local interface, synthetic demo, capability cards and guide; verify UI form interactions and full research lifecycle.
-- [ ] Batch E: review all capability claims against observed behavior; run quality gates; record limitations and verification; commit, push and open PR.
+- [x] Batch E: review all capability claims against observed behavior; run quality gates; record limitations and verification; commit, push and open PR #1. This completes the local alpha delivery, not the research validation backlog below.
 
 ## Required behavior examples
 

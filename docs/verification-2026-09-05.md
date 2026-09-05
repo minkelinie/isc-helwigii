@@ -9,6 +9,7 @@
 - An independent read-only code review identified four defects: replacement bypass, incomplete backup integrity checks, overbroad revision scope and missing-language matching. Regression tests reproduced all four before fixes; the reviewer verified the corrections.
 - Docker image `isc-helwigii:local-research` built successfully on Linux arm64 using Python 3.12. Its default command initialized the project as a non-root user. Database health, HTTP health and all eight research pages passed in a temporary container.
 - The temporary test container was stopped after verification. The native application remains the normal local launch route.
+- GitHub push CI passed its Python 3.11, Python 3.12 and installed-wheel jobs for implementation commit `7040538`. Publication is [pull request #1](https://github.com/minkelinie/isc-helwigii/pull/1), not a merge into main.
 
 ## Local corpus verification
 
