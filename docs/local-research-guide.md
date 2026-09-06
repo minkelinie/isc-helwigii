@@ -84,7 +84,7 @@ De audit leest bronnen, edities, annotaties en reviewhistorie in één consisten
 
 Ontbrekende top-level metadata kan voor de inventaris uit `legacy_metadata` worden weergegeven. De rij vermeldt dan het oorspronkelijke pad, zoals `legacy_metadata.period`. Dit is alleen een zichtbare fallback: oude perioden, genres en mythlabels worden niet geaccepteerd bewijs en worden nooit automatisch gold labels.
 
-De probleemrijen markeren onder meer onbekende taal, lege of geheel onleesbare tekst, ontbrekende periode of vindplaats, malformed metadata, legacy/synthetische herkomst, ontbrekende composition family, meerdere edities, identieke genormaliseerde tekst en dezelfde externe identificatie bij verschillende bronnen. Geheel onleesbaar betekent hier: na witruimtenormalisatie blijven alleen haakjes, interpunctie, `x`-markeringen of `lacuna` over. Dit is een technische drempel; de audit verklaart tekst niet inhoudelijk correct of incorrect. De tabel is begrensd tot 1.000 rijen, terwijl tellingen en verdelingen alle edities omvatten.
+De probleemrijen markeren onder meer onbekende taal, lege of geheel onleesbare tekst, ontbrekende periode of vindplaats, malformed metadata, legacy/synthetische herkomst, ontbrekende composition family, meerdere edities, identieke genormaliseerde tekst en dezelfde externe identificatie bij verschillende bronnen. Geheel onleesbaar betekent hier: na witruimtenormalisatie blijven alleen haakjes, interpunctie, `x`-markeringen of `lacuna` over. Dit is een technische drempel; de audit verklaart tekst niet inhoudelijk correct of incorrect. De export, tellingen en verdelingen omvatten alle probleemrijen; de interface filtert die volledige verzameling en toont pagina's van maximaal 100 rijen.
 
 ### Een referentieset voorbereiden
 

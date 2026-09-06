@@ -13,8 +13,9 @@ from pathlib import Path
 from isc_helwigii.store import canonical
 
 REFERENCE_AXES = ("genre", "language", "period", "archive", "other", "composition_family")
-UNKNOWN_VALUES = frozenset({"", "-", "?", "n/a", "na", "none", "null", "und", "unknown", "unidentified", "undetermined"})
-MAX_ISSUE_ROWS = 1000
+UNKNOWN_VALUES = frozenset(
+    {"", "-", "?", "n/a", "none", "null", "und", "unknown", "unidentified", "undetermined"}
+)
 
 
 def _sha256(value):
@@ -319,13 +320,12 @@ def audit_corpus(store) -> dict:
             "source": dict(sorted(source_counts.items())),
             "issues": dict(sorted(issue_counts.items())),
         },
-        "editions": issue_rows[:MAX_ISSUE_ROWS],
-        "issue_rows_truncated": len(issue_rows) > MAX_ISSUE_ROWS,
+        "editions": issue_rows,
         "limitations": [
             "Metadata completeness does not establish linguistic correctness, historical validity, representativeness or source rights.",
             "Exact text matching uses NFC, casefolding and collapsed whitespace only; diacritics, damage notation and index digits remain distinct.",
             "Empty text and text consisting only of brackets, punctuation, x-markers or 'lacuna' is treated as unreadable and never used as duplicate identity.",
-            f"The actionable edition queue is capped at {MAX_ISSUE_ROWS} rows; distributions and counts cover every edition.",
+            "The export retains every actionable edition row; the interface filters the full queue and displays bounded pages.",
         ],
     }
 

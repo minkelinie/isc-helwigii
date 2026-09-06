@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -14,19 +15,25 @@ def test_corpus_workspace_audits_filters_and_prepares_synthetic_abstention(
 ):
     store = ResearchStore(tmp_path / "ui.db")
     store.initialize()
+    records = [
+        {
+            "external_id": f"SYNTH-{index:04d}",
+            "language": f"fixture-language-{index:04d}",
+            "text": f"invented text {index}",
+            "synthetic": True,
+        }
+        for index in range(1001)
+    ]
     store.import_records(
         b"fixture",
-        [
-            {
-                "external_id": "SYNTH-A",
-                "language": "demo",
-                "text": "invented text",
-                "synthetic": True,
-            }
-        ],
+        records,
         source="synthetic-ui-fixture",
         license="CC0 synthetic fixture only",
     )
+    with store.connection() as con:
+        record_after_old_cutoff = json.loads(
+            con.execute("SELECT record FROM editions ORDER BY id LIMIT 1 OFFSET 1000").fetchone()[0]
+        )
     monkeypatch.setenv("ISC_HELWIGII_PROJECT", str(store.path))
     app = AppTest.from_file(str(Path(ui.__file__))).run()
 
@@ -34,7 +41,13 @@ def test_corpus_workspace_audits_filters_and_prepares_synthetic_abstention(
     next(button for button in app.button if button.label == "Corpusrapport genereren").click().run()
 
     assert not app.exception
-    assert any(frame.value.shape[0] == 1 for frame in app.dataframe)
+    language_filter = next(box for box in app.selectbox if box.label == "Taal")
+    language_filter.set_value(record_after_old_cutoff["language"]).run()
+    assert any(
+        "external_id" in frame.value
+        and record_after_old_cutoff["external_id"] in set(frame.value["external_id"])
+        for frame in app.dataframe
+    )
     issue_filter = next(box for box in app.selectbox if box.label == "Probleemtype")
     issue_filter.set_value("synthetic_record").run()
     assert not app.exception

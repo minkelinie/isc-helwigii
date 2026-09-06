@@ -157,6 +157,13 @@ def test_audit_treats_top_level_and_legacy_placeholder_periods_as_missing(tmp_pa
                 "provenience": "Nippur",
                 "legacy_metadata": {"period": "UNKNOWN"},
             },
+            {
+                "external_id": "NEO-ASSYRIAN",
+                "language": "akkadian",
+                "text": "c",
+                "period": "NA",
+                "provenience": "Nineveh",
+            },
         ],
         source="legacy",
         license="private/unverified",
@@ -170,6 +177,30 @@ def test_audit_treats_top_level_and_legacy_placeholder_periods_as_missing(tmp_pa
     assert rows["TOP"]["metadata_paths"]["period"] == "period"
     assert rows["LEGACY"]["metadata"]["period"] is None
     assert rows["LEGACY"]["metadata_paths"]["period"] == "legacy_metadata.period"
+    assert rows["NEO-ASSYRIAN"]["metadata"]["period"] == "NA"
+    assert "missing_period" not in rows["NEO-ASSYRIAN"]["issues"]
+
+
+def test_audit_retains_issue_rows_beyond_the_first_thousand(tmp_path):
+    store = ResearchStore(tmp_path / "project.db")
+    store.initialize()
+    records = [
+        {
+            "external_id": f"ROW-{index:04d}",
+            "language": f"test-language-{index:04d}",
+            "text": f"text {index}",
+        }
+        for index in range(1001)
+    ]
+    store.import_records(b"large-fixture", records, source="s", license="private")
+
+    result = audit_corpus(store)
+
+    assert result["counts"]["issue_rows"] == 1001
+    assert len(result["editions"]) == 1001
+    assert {row["external_id"] for row in result["editions"]} == {
+        record["external_id"] for record in records
+    }
 
 
 def test_reference_requires_current_accepted_label_and_family(tmp_path):

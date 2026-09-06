@@ -80,7 +80,23 @@ def corpus_page(store, actor):
             f"{len(filtered)} passende probleemrijen; maximaal 100 per pagina. "
             "De audit markeert controlepunten en beoordeelt geen inhoudelijke geldigheid."
         )
-        st.dataframe(filtered[page * 100 : (page + 1) * 100], hide_index=True)
+        display_rows = [
+            {
+                "external_id": row["external_id"],
+                "source": row["source"],
+                "language": row["metadata"]["language"],
+                "period": row["metadata"]["period"],
+                "provenience": row["metadata"]["provenience"],
+                "issues": ", ".join(row["issues"]),
+                "edition_id": row["edition_id"],
+                "artifact_id": row["artifact_id"],
+                "snapshot_id": row["snapshot_id"],
+                "metadata_paths": row["metadata_paths"],
+                "text_fingerprint": row["text_fingerprint"],
+            }
+            for row in filtered[page * 100 : (page + 1) * 100]
+        ]
+        st.dataframe(display_rows, hide_index=True)
         _json_download(
             "Corpusrapport downloaden",
             report,
