@@ -30,6 +30,16 @@ def build_parser() -> argparse.ArgumentParser:
         sub.add_argument("project", type=Path)
         if name == "list":
             sub.add_argument("--query", default="")
+    sub = commands.add_parser("audit", help="audit corpus metadata and evidence")
+    sub.add_argument("project", type=Path)
+    sub.add_argument("--output", type=Path, help="new JSON export path")
+    sub = commands.add_parser(
+        "reference-set", help="prepare an evidence-linked category reference set"
+    )
+    sub.add_argument("project", type=Path)
+    sub.add_argument("--axis", default="genre")
+    sub.add_argument("--seed", default="42")
+    sub.add_argument("--output", type=Path, help="new JSON export path")
     sub = commands.add_parser("dossier")
     sub.add_argument("project", type=Path)
     sub.add_argument("artifact")
@@ -99,6 +109,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 def research_command(args):
     from isc_helwigii.bundles import export_bundle, restore_bundle
+    from isc_helwigii.corpus import audit_corpus, prepare_reference_set, write_json_export
     from isc_helwigii.demo import seed_demo
     from isc_helwigii.ingest import PARSERS
     from isc_helwigii.research import run_method
@@ -120,6 +131,22 @@ def research_command(args):
         return store.dossier(args.artifact)
     if args.command == "runs":
         return store.runs()
+    if args.command in ("audit", "reference-set"):
+        if args.output is not None and args.output.expanduser().resolve() == store.path:
+            raise ValueError("export destination must differ from the project")
+        if args.command == "reference-set":
+            try:
+                seed = int(args.seed)
+            except ValueError as exc:
+                raise ValueError("seed must be an integer") from exc
+        result = (
+            audit_corpus(store)
+            if args.command == "audit"
+            else prepare_reference_set(store, axis=args.axis, seed=seed)
+        )
+        if args.output is not None:
+            write_json_export(result, args.output)
+        return result
     if args.command == "import":
         raw = args.file.read_bytes()
         records = PARSERS[args.format](raw)

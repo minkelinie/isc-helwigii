@@ -3,8 +3,8 @@
 CAPABILITIES = [
     {
         "workflow": "Bronnen en corpus",
-        "available": "Lokale JSON, ATF en ORACC-catalogi; originele bytes, licentie en edities",
-        "validation": "Softwaretests; uitgebreide corpusvalidatie ontbreekt",
+        "available": "Lokale JSON, ATF en ORACC-catalogi; originele bytes, licentie, edities en een deterministische kwaliteitsinventaris",
+        "validation": "Controlepunten voor metadata en exacte duplicaten; geen inhoudelijke corpuscertificering",
     },
     {
         "workflow": "Tekens en paleografie",
@@ -43,8 +43,8 @@ CAPABILITIES = [
     },
     {
         "workflow": "Evaluatie en reproduceerbaarheid",
-        "available": "Familiesplits, classificatiematen, vastgelegde experimentinput en broncode",
-        "validation": "Softwarecontracten getest; echte gold sets nodig",
+        "available": "Evidence-linked referentie-export, familiesplits, classificatiematen, vastgelegde experimentinput en broncode",
+        "validation": "Softwarecontracten getest; expliciet beoordeelde, representatieve gold sets blijven nodig",
     },
     {
         "workflow": "Lokaal projectbeheer",

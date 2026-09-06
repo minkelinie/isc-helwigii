@@ -71,6 +71,44 @@ Datasetsplits combineren composition families met exact gelijke genormaliseerde 
 
 Elk experiment bewaart invoer, annotatiestatussen, uitkomst, methode, auteur en gebruikte implementatiecode. Herstel voert opgeslagen code nooit automatisch uit. Download een experiment als JSON of maak een projectbundel. Bundels controleren bron- en mediachecksums, SQLite-integriteit en schemabescherming vóór herstel naar een nieuw bestand.
 
+### Corpuskwaliteit inventariseren
+
+Open **Corpuskwaliteit** en kies **Corpusrapport genereren**, of gebruik:
+
+```bash
+isc-helwigii audit onderzoek.db
+isc-helwigii audit onderzoek.db --output corpus-audit.json
+```
+
+De audit leest bronnen, edities, annotaties en reviewhistorie in één consistente, alleen-lezen momentopname. Tablet-aantallen zijn unieke brongebonden artefacten; editie-aantallen omvatten alle versies. Het bronnenregister toont de ingevoerde licentietekst, adapter en checksum zonder ruwe bronbytes in JSON op te nemen. Een licentietekst is geen juridische verificatie of toestemming voor herdistributie.
+
+Ontbrekende top-level metadata kan voor de inventaris uit `legacy_metadata` worden weergegeven. De rij vermeldt dan het oorspronkelijke pad, zoals `legacy_metadata.period`. Dit is alleen een zichtbare fallback: oude perioden, genres en mythlabels worden niet geaccepteerd bewijs en worden nooit automatisch gold labels.
+
+De probleemrijen markeren onder meer onbekende taal, lege of geheel onleesbare tekst, ontbrekende periode of vindplaats, malformed metadata, legacy/synthetische herkomst, ontbrekende composition family, meerdere edities, identieke genormaliseerde tekst en dezelfde externe identificatie bij verschillende bronnen. Geheel onleesbaar betekent hier: na witruimtenormalisatie blijven alleen haakjes, interpunctie, `x`-markeringen of `lacuna` over. Dit is een technische drempel; de audit verklaart tekst niet inhoudelijk correct of incorrect. De tabel is begrensd tot 1.000 rijen, terwijl tellingen en verdelingen alle edities omvatten.
+
+### Een referentieset voorbereiden
+
+Maak per tablet twee afzonderlijk beoordeelde categorie-annotaties:
+
+1. Kies bij **Lezen & annoteren** het type `category`, de gewenste as (bijvoorbeeld `genre`) en een inhoudelijk label.
+2. Leg nog een `category` vast met as `composition_family` en de redactionele compositiefamilie.
+3. Beoordeel beide voorstellen expliciet. Alleen de actuele status `accepted` telt; pending, rejected en door een geaccepteerde herziening superseded voorstellen tellen niet.
+
+Daarna kan **Corpuskwaliteit** de set voorbereiden, of gebruik:
+
+```bash
+isc-helwigii reference-set onderzoek.db --axis genre --seed 42
+isc-helwigii reference-set onderzoek.db --axis genre --seed 42 --output genre-reference.json
+```
+
+Een exportpad moet nieuw zijn en mag niet het projectbestand zijn. De export bewaart per editie de tekst, bron- en recordchecksum, bronrechten, gekozen labels en de betrokken annotatie- en reviewhistorie. Lokale actornamen zijn attributie, geen geauthenticeerde deskundigheidsstatus. Een aanwezige taalwaarde is een technische toegangsdrempel en geen onafhankelijke taalcontrole.
+
+De voorbereiding sluit edities met ontbrekende of conflicterende geaccepteerde labels/families, synthetische data, onbekende taal en lege of geheel onleesbare tekst uit. Een leeg resultaat is een gedocumenteerde onthouding, geen gefabriceerde benchmark. Legacy-records kunnen alleen deelnemen na expliciete annotatie en beoordeling; hun geïmporteerde labels volstaan niet.
+
+Groepering gebeurt vóór uitsluiting over het volledige corpus. Alle edities van één tablet, alle geaccepteerde composition-family-koppelingen en exacte tekstduplicaten vormen transitieve componenten, ook als een tussenliggende editie zelf wordt uitgesloten. Tekstnormalisatie is uitsluitend Unicode NFC, casefolding en samengevouwen witruimte; diacritische tekens, schade-notatie en indexcijfers blijven onderscheiden. Bijna-duplicaten vragen handmatige familiegroepering.
+
+Dezelfde momentopname, as en seed geven dezelfde export. Toegevoegde bronnen, edities, annotaties of beoordelingen veranderen de fingerprints en kunnen componenten — en dus splittoewijzingen — verplaatsen. Behandel de splits daarom als een reproduceerbaar voorstel bij een specifieke corpusstaat, niet als een permanent bevroren of representatieve gold benchmark.
+
 ## Productgrenzen en vervolgstappen
 
 Deze versie ondersteunt handmatige filologische workflows en verkennende analyse. Voor een volledig gevalideerd automatisch onderzoeksplatform ontbreken nog: omvangrijke taalgescheiden gold sets, lokale OCR- en vertaalmodellen, geometrische joins, geharmoniseerde laboratoriumreferenties, gekalibreerde herkomstmodellen en echte historische modelvergelijking met resampling en biasanalyse. De productplanning houdt die onderzoekstaken open.

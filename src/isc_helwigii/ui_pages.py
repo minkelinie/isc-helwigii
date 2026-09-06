@@ -13,6 +13,7 @@ from isc_helwigii.demo import seed_demo
 from isc_helwigii.ingest import PARSERS
 from isc_helwigii.research import editions, run_method
 from isc_helwigii.store import ANNOTATION_KINDS
+from isc_helwigii.ui_corpus import corpus_page
 
 
 def choose_artifact(store, key="artifact"):
@@ -175,8 +176,13 @@ def reading_page(store, actor):
             payload.update(
                 label=st.text_input("Categorie"),
                 axis=st.selectbox(
-                    "Classificatie", ["genre", "language", "period", "archive", "other"]
+                    "Classificatie",
+                    ["genre", "language", "period", "archive", "composition_family", "other"],
                 ),
+            )
+            st.caption(
+                "Gebruik composition_family voor expliciete redactionele groepering; "
+                "beoordeling blijft nodig voordat een referentieset dit label gebruikt."
             )
         elif kind == "date":
             st.caption("Astronomische jaartelling: jaar 0 = 1 v.Chr.; -1999 = 2000 v.Chr.")
@@ -507,6 +513,7 @@ PAGES = {
     "Materiaal": material_page,
     "Mythen & hypothesen": mythology_page,
     "Evaluatie": evaluation_page,
+    "Corpuskwaliteit": corpus_page,
     "Experimenten & export": exports_page,
     "Mogelijkheden": capabilities_page,
 }

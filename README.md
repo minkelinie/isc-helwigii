@@ -30,9 +30,24 @@ Open http://127.0.0.1:8501 . The server binds to this computer, telemetry is dis
 - **Materials:** laboratory, method, calibration, reference group, analytes, units and one-sigma uncertainty; component-wise compatible measurement distances.
 - **Myths:** reviewed passage motifs, undirected overlap networks, witness date intervals, competing explanations and falsifiable hypothesis records.
 - **Evaluation:** classification with abstention, composition-family/exact-duplicate grouped splits, counts and confusion matrices.
+- **Corpus quality:** deterministic source and metadata inventory, bounded issue queue and evidence-linked reference-set preparation without changing the project.
 - **Experiments and export:** frozen inputs, output, actor, method implementation source and checksum; portable verified project bundles including media.
 
 Review identities are locally entered attribution, not authenticated roles. Accepted annotations are editorial decisions, not automatic scientific validation. Missing data causes abstention. An overlap score is not an ancestry, join or geographic-origin probability.
+
+## Audit and reference preparation
+
+```bash
+isc-helwigii audit ./research.db
+isc-helwigii audit ./research.db --output ./corpus-audit.json
+isc-helwigii reference-set ./research.db --axis genre --seed 42 --output ./genre-reference.json
+```
+
+Exports require a new path and never overwrite an existing file or the project. The audit counts every edition, while tablet totals count distinct source-specific artifacts. Its metadata flags are prompts for editorial checking, not proof that a record is false, and recorded license text is not independent rights clearance.
+
+A reference item needs a current accepted category annotation on the requested axis and one non-placeholder accepted `composition_family`. Record and review both in **Lezen & annoteren**; imported legacy labels are metadata only and are not promoted automatically. Pending, rejected, superseded, conflicting, synthetic, empty, wholly unreadable and unknown-language editions are excluded with reasons. Actor names record local attribution and do not authenticate expertise.
+
+Exact-text grouping applies Unicode NFC, casefolding and whitespace collapse only. It preserves damage notation, diacritics and index digits. Editions of one artifact, accepted composition families and exact normalized duplicates are grouped transitively before exclusions, so excluded bridge records cannot introduce split leakage. The seed is deterministic for one corpus snapshot, but later corpus or review edits can move components; retain and compare the exported fingerprints.
 
 ## Import your data
 
