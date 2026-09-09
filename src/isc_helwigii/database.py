@@ -6,6 +6,8 @@ import sqlite3
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from isc_helwigii.store import ResearchStore
+
 KNOWN_TABLES = (
     "artifacts",
     "source_snapshots",
@@ -71,12 +73,24 @@ def inspect_database(path: Path) -> DatabaseReport:
             if table in tables
         }
         schema = _classify_schema(tables)
+        error = None
+        if schema == "evidence-v1":
+            try:
+                ResearchStore.validate(connection)
+                if (
+                    connection.execute("PRAGMA quick_check").fetchone()[0] != "ok"
+                    or connection.execute("PRAGMA foreign_key_check").fetchone()
+                ):
+                    raise ValueError("database integrity check failed")
+            except ValueError as exc:
+                error = str(exc)
         return DatabaseReport(
-            status="healthy" if schema != "unknown" else "degraded",
+            status="healthy" if schema != "unknown" and error is None else "degraded",
             path=path,
             schema=schema,
             tables=tuple(sorted(tables)),
             counts=counts,
+            error=error,
         )
     except (OSError, sqlite3.Error) as exc:
         return DatabaseReport(

@@ -3,6 +3,7 @@ from contextlib import closing
 from pathlib import Path
 
 from isc_helwigii.database import inspect_database
+from isc_helwigii.store import ResearchStore
 
 
 def test_missing_database_is_unavailable_without_creating_it(tmp_path: Path) -> None:
@@ -46,15 +47,24 @@ def test_legacy_database_counts_known_tables(tmp_path: Path) -> None:
 def test_evidence_database_has_precedence_over_legacy_tables(tmp_path: Path) -> None:
     """Catches the new evidence schema being mislabeled when legacy tables coexist."""
     path = tmp_path / "evidence.db"
+    ResearchStore(path).initialize()
     with closing(sqlite3.connect(path)) as connection, connection:
-        connection.execute("CREATE TABLE artifacts (id TEXT PRIMARY KEY)")
-        connection.execute("CREATE TABLE source_snapshots (id TEXT PRIMARY KEY)")
         connection.execute("CREATE TABLE tablets (id TEXT PRIMARY KEY)")
 
     report = inspect_database(path)
 
     assert report.status == "healthy"
     assert report.schema == "evidence-v1"
+
+
+def test_partial_evidence_schema_is_not_healthy(tmp_path):
+    path = tmp_path / "partial.db"
+    with closing(sqlite3.connect(path)) as con:
+        con.execute("CREATE TABLE artifacts (id TEXT PRIMARY KEY)")
+        con.execute("CREATE TABLE source_snapshots (id TEXT PRIMARY KEY)")
+    report = inspect_database(path)
+    assert report.status == "degraded"
+    assert "schema" in report.error
 
 
 def test_non_sqlite_file_is_unavailable(tmp_path: Path) -> None:

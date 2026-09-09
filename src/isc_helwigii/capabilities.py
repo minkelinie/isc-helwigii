@@ -28,7 +28,7 @@ CAPABILITIES = [
     },
     {
         "workflow": "Tekst- en fragmentmatching",
-        "available": "Tokenoverlap, sequentie-uitlijning en vastleggen van fysieke joinvoorstellen",
+        "available": "Corpusbreed onderzoeksdossier met woordoverlap, sequentie-uitlijning, bronedities en verschillen; fysieke joinvoorstellen vastleggen",
         "validation": "Verkennende scores; fysieke joins niet automatisch berekend",
     },
     {

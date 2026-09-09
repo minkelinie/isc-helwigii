@@ -11,6 +11,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from isc_helwigii.analysis import date_overlap, validate_material
+from isc_helwigii.schema import CREATE_SCHEMA, validate_tables
 
 SCHEMA_VERSION = 1
 ANNOTATION_KINDS = (
@@ -123,6 +124,7 @@ class ResearchStore:
         for table, columns in SCHEMA_COLUMNS.items():
             if [row[1] for row in con.execute(f"PRAGMA table_info({table})")] != columns.split():
                 raise ValueError("invalid project schema columns")
+        validate_tables(con)
         actual = dict(con.execute("SELECT name,sql FROM sqlite_master WHERE type='trigger'"))
         if actual != integrity_triggers():
             raise ValueError("invalid project schema integrity triggers")
@@ -148,31 +150,7 @@ class ResearchStore:
                 self.validate(con)
                 return
             con.execute("PRAGMA foreign_keys=ON")
-            con.executescript("""
-                BEGIN IMMEDIATE;
-                CREATE TABLE source_snapshots (
-                    id TEXT PRIMARY KEY, source TEXT NOT NULL, license TEXT NOT NULL,
-                    checksum TEXT NOT NULL, adapter TEXT NOT NULL, raw BLOB NOT NULL, created_at TEXT NOT NULL);
-                CREATE TABLE artifacts (id TEXT PRIMARY KEY, source TEXT NOT NULL, external_id TEXT NOT NULL,
-                    UNIQUE(source, external_id));
-                CREATE TABLE editions (id TEXT PRIMARY KEY, artifact_id TEXT NOT NULL REFERENCES artifacts(id),
-                    snapshot_id TEXT NOT NULL REFERENCES source_snapshots(id), record TEXT NOT NULL,
-                    UNIQUE(artifact_id, snapshot_id));
-                CREATE TABLE annotations (id TEXT PRIMARY KEY, artifact_id TEXT NOT NULL REFERENCES artifacts(id),
-                    kind TEXT NOT NULL, payload TEXT NOT NULL, actor TEXT NOT NULL, origin TEXT NOT NULL,
-                    evidence TEXT NOT NULL, supersedes TEXT REFERENCES annotations(id), created_at TEXT NOT NULL);
-                CREATE TABLE review_events (seq INTEGER PRIMARY KEY, annotation_id TEXT NOT NULL REFERENCES annotations(id),
-                    decision TEXT NOT NULL CHECK(decision IN ('accepted','rejected')), actor TEXT NOT NULL,
-                    reason TEXT NOT NULL, created_at TEXT NOT NULL);
-                CREATE TABLE assets (id TEXT PRIMARY KEY, artifact_id TEXT NOT NULL REFERENCES artifacts(id),
-                    name TEXT NOT NULL, media_type TEXT NOT NULL, license TEXT NOT NULL, actor TEXT NOT NULL,
-                    checksum TEXT NOT NULL, content BLOB NOT NULL, created_at TEXT NOT NULL);
-                CREATE TABLE experiment_runs (id TEXT PRIMARY KEY, method TEXT NOT NULL,
-                    inputs TEXT NOT NULL, outputs TEXT NOT NULL, actor TEXT NOT NULL, created_at TEXT NOT NULL);
-                CREATE INDEX editions_artifact ON editions(artifact_id);
-                CREATE INDEX annotations_artifact ON annotations(artifact_id);
-                CREATE INDEX reviews_annotation ON review_events(annotation_id, seq);
-            """)
+            con.executescript(CREATE_SCHEMA)
             for sql in integrity_triggers().values():
                 con.execute(sql)
             con.execute(f"PRAGMA user_version={SCHEMA_VERSION}")

@@ -51,7 +51,7 @@ def validate_installed_wheel(wheel_path: Path) -> None:
         environment = Path(temp_dir) / "venv"
         # Match `python -m venv` on POSIX. Relocatable uv runtimes need the original
         # executable path to locate their standard library when creating a venv.
-        venv.EnvBuilder(with_pip=True, symlinks=os.name != 'nt').create(environment)
+        venv.EnvBuilder(with_pip=True, symlinks=os.name != "nt").create(environment)
         python = environment / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
         run_checked(
             [
@@ -100,6 +100,16 @@ def validate_installed_wheel(wheel_path: Path) -> None:
         rows = json.loads(run_checked(cli + ["list", str(restored)], cwd=Path(temp_dir)).stdout)
         if len(rows) != 3:
             raise SystemExit("installed research workflow did not restore three demo witnesses")
+        dossier = json.loads(run_checked(cli + ["dossier", str(restored), rows[0]["id"]]).stdout)
+        result = json.loads(
+            run_checked(
+                cli
+                + ["prepare", str(restored), dossier["editions"][0]["id"], "--actor", "wheel-check"]
+            ).stdout
+        )
+        if result["outputs"]["corpus"]["edition_count"] != 3 or not result["outputs"]["parallels"]:
+            raise SystemExit("installed research dossier did not search the demo corpus")
+        run_checked(cli + ["health", "--database", str(restored), "--json"])
 
 
 def main(argv: list[str] | None = None) -> int:

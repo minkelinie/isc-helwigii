@@ -6,6 +6,7 @@ from isc_helwigii import __version__, analysis, evaluation
 from isc_helwigii.store import digest
 
 METHODS = (
+    "research-dossier",
     "text",
     "material",
     "motif-network",
@@ -68,6 +69,10 @@ def reviewed_translations(store):
 def run_method(store, method, parameters, *, actor):
     if method not in METHODS or not isinstance(parameters, dict):
         raise ValueError("unsupported method or parameters")
+    if method == "research-dossier":
+        from isc_helwigii.dossier import prepare_dossier
+
+        return prepare_dossier(store, parameters, actor=actor)
     inputs = {"parameters": parameters, "software_version": __version__}
     if method == "text":
         selected = [store.edition(parameters.get(k)) for k in ("left", "right")]

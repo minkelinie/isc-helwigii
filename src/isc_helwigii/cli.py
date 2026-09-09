@@ -43,6 +43,14 @@ def build_parser() -> argparse.ArgumentParser:
     sub = commands.add_parser("dossier")
     sub.add_argument("project", type=Path)
     sub.add_argument("artifact")
+    sub = commands.add_parser("prepare", help="prepare a corpus-wide passage research dossier")
+    sub.add_argument("project", type=Path)
+    sub.add_argument("edition_id")
+    sub.add_argument("--actor", required=True)
+    sub.add_argument("--start", type=int, default=0)
+    sub.add_argument("--end", type=int)
+    sub.add_argument("--limit", type=int, default=10)
+    sub.add_argument("--target-language", default="nl")
     sub = commands.add_parser("import")
     sub.add_argument("project", type=Path)
     sub.add_argument("file", type=Path)
@@ -129,6 +137,16 @@ def research_command(args):
         return store.artifacts(args.query)
     if args.command == "dossier":
         return store.dossier(args.artifact)
+    if args.command == "prepare":
+        parameters = {
+            "edition_id": args.edition_id,
+            "start": args.start,
+            "limit": args.limit,
+            "target_language": args.target_language,
+        }
+        if args.end is not None:
+            parameters["end"] = args.end
+        return run_method(store, "research-dossier", parameters, actor=args.actor)
     if args.command == "runs":
         return store.runs()
     if args.command in ("audit", "reference-set"):

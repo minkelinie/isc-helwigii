@@ -24,6 +24,7 @@ Open http://127.0.0.1:8501 . The server binds to this computer, telemetry is dis
 ## Research workflows
 
 - **Project:** native research JSON, CDLI-style ATF and ORACC catalogue imports; raw source bytes, SHA-256 and rights statements.
+- **Research dossier:** select a source passage and retrieve same-language text candidates across the complete corpus, with shared/different tokens, source editions, reviewed exact translations and a saved experiment.
 - **Tablets:** source-specific identities, multiple editions, conflicting source fields, attached images/reports/files and source downloads.
 - **Reading:** passage-anchored transliteration, translation, morphology notes, sign regions, motifs, categories, dates and places; alternative interpretations and append-only review.
 - **Comparison:** same-language lexical overlap and token alignment; manual physical-join proposals with evidence.
@@ -36,6 +37,17 @@ Open http://127.0.0.1:8501 . The server binds to this computer, telemetry is dis
 Review identities are locally entered attribution, not authenticated roles. Accepted annotations are editorial decisions, not automatic scientific validation. Missing data causes abstention. An overlap score is not an ancestry, join or geographic-origin probability.
 
 ## Audit and reference preparation
+
+In the interface, open **Onderzoeksdossier**, select a tablet and leave the complete text or paste an exact passage from it. If a passage occurs more than once, select the intended occurrence. Click **Onderzoeksdossier voorbereiden**. Results persist while you inspect the same selection and are saved under **Experimenten & export**.
+
+The CLI offers the same operation without a request file:
+
+```bash
+isc-helwigii prepare ./research.db EDITION_ID --actor researcher --target-language nl --limit 10
+isc-helwigii prepare ./research.db EDITION_ID --actor researcher --start 0 --end 40
+```
+
+Ranking compares NFC/casefold token sets with full same-language editions using Jaccard overlap, with ties ordered by edition ID. Other editions of the selected artifact are excluded. This is a lexical baseline, so short parallels inside long texts may rank poorly. It does not generate translations. A saved run records the source snapshot IDs, edition manifest checksum, passage, results and implementation; rerun after new sources or reviews.
 
 ```bash
 isc-helwigii audit ./research.db
@@ -68,6 +80,8 @@ isc-helwigii restore ./research.zip ./restored.db
 
 Both operations require a new destination. Restore verifies archive and evidence checksums, schema guards, SQLite integrity and foreign keys. The zip includes original sources and media, so their usage rights still apply. The source of truth is the SQLite project; do not edit it directly.
 
+Open, health and restore share the versioned table contract, including primary keys, mandatory fields, foreign keys, uniqueness, review decisions and immutable triggers. Supported tables must match the canonical versioned DDL (formatting whitespace outside quoted literals is ignored); hand-rebuilt schemas are not silently accepted merely because their column names match. Health also runs SQLite quick and foreign-key checks; complete evidence checksums are verified on export/restore.
+
 ## Tests and package verification
 
 ```bash
@@ -93,6 +107,7 @@ The container initializes a new `/data/research.db` in its named volume and serv
 ## Documentation and roadmap
 
 - [Local research guide](docs/local-research-guide.md)
+- [Current software status](docs/status.md)
 - [Product implementation plan and outstanding research validation](docs/superpowers/plans/2026-09-05-local-research-product.md)
 - [Scientific design](docs/plans/2026-09-04-evidence-first-foundation-design.md)
 - [Repository and artifact policy](docs/repository-policy.md)
