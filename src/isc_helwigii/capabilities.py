@@ -18,7 +18,7 @@ CAPABILITIES = [
     },
     {
         "workflow": "Vertalen",
-        "available": "Uitgelijnde handmatige vertalingen; geheugen van beoordeelde exacte parallelpassages",
+        "available": "Passagekeuze, voorstellen en review; vertaalwerkblad met open passages, overlapconflicten en Markdown/JSON-export; geheugen van beoordeelde exacte parallelpassages",
         "validation": "Geen generatief vertaalmodel; vakinhoudelijke beoordeling vereist",
     },
     {

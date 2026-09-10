@@ -33,6 +33,24 @@ Een legacy SQLite-database met `tablets.id` en `tablets.transliteration` kan met
 
 ## 2. Lezen, vertalen en beoordelen
 
+Open **Vertalen** voor een werkblad per broneditie en doeltaal. Plak een ongewijzigde passage uit de getoonde tekst; bij herhaling kiest u het juiste voorkomen. De app bepaalt de tekenposities. Vul de vertaling en de bibliografische referentie of onderbouwing in en sla het voorstel op. Het voorstel blijft onbeoordeeld totdat u bij de getoonde bronpassage en vertaling expliciet een besluit met reden vastlegt.
+
+Het werkblad toont geaccepteerde vertalingen, open passages en conflicten. Overlappende geaccepteerde voorstellen worden als één conflicterende groep getoond, ook als de overlap via een derde voorstel loopt. De app knipt vertalingen niet op basis van bronposities en kiest geen winnaar. Los een conflict op door een voorstel gemotiveerd af te wijzen of een passende herziening te beoordelen. Een herziening vervangt uitsluitend dezelfde editie, passage en doeltaal.
+
+De dekkingsgraad telt Unicode-tekens zonder witruimte met één geaccepteerde, niet-overlappende vertaling. Schademarkeringen tellen als broninhoud. Dit meet redactionele dekking, geen vertaalnauwkeurigheid of leesbaarheid. Een tekst zonder inhoud krijgt geen percentage. Bronpassages worden niet aangevuld of automatisch vertaald.
+
+Download het werkblad als leesbare **Markdown** en als **JSON** met bronidentiteit, bronrechten, annotaties, laatste beoordelingen en fingerprint. Beide zijn een momentopname; exporteer opnieuw na wijzigingen. De export leest één consistente databasestand en verandert het project niet. De volledige reviewhistorie blijft in het project en de projectbundel. Via de CLI:
+
+```bash
+isc-helwigii translation-sheet onderzoek.db EDITIE_ID
+isc-helwigii translation-sheet onderzoek.db EDITIE_ID --target-language nl --format markdown --output vertaling.md
+isc-helwigii translation-sheet onderzoek.db EDITIE_ID --output vertaling.json
+```
+
+Zonder `--output` schrijft de CLI het gekozen formaat naar standaarduitvoer (standaard JSON). Met `--output` ontvangt het nieuwe bestand dat formaat en blijft de standaarduitvoer JSON. Het uitvoerbestand moet nieuw zijn. Verwijzingen naar elders beoordeelde parallelpassages staan bij **Onderzoeksdossier**; die worden niet automatisch als eigen vertaling opgenomen.
+
+Voor andere annotatietypen blijft **Lezen & annoteren** beschikbaar:
+
 Selecteer een tablet en een specifieke editie. Passagegrenzen zijn Python/Unicode-tekenposities: begin inclusief, einde exclusief. Voor een hele tekst van 20 tekens gebruikt u 0 en 20. De weergegeven brontekst verandert niet als u een alternatieve lezing of vertaling toevoegt.
 
 Een voorstel bevat auteur, herkomst (`observed`, `imported` of `inferred`), bronverwijzing en inhoud. Het krijgt eerst status `pending`. Beoordelen voegt een acceptatie of afwijzing met reden toe. Een nieuwe geaccepteerde herziening kan dezelfde passage en doeltaal vervangen; een andere passage of taal krijgt een apart voorstel.

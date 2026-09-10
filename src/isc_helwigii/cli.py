@@ -51,6 +51,14 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_argument("--end", type=int)
     sub.add_argument("--limit", type=int, default=10)
     sub.add_argument("--target-language", default="nl")
+    sub = commands.add_parser(
+        "translation-sheet", help="inspect and export reviewed translations for one source edition"
+    )
+    sub.add_argument("project", type=Path)
+    sub.add_argument("edition_id")
+    sub.add_argument("--target-language", default="nl")
+    sub.add_argument("--format", choices=["json", "markdown"], default="json")
+    sub.add_argument("--output", type=Path, help="new export path (never overwritten)")
     sub = commands.add_parser("import")
     sub.add_argument("project", type=Path)
     sub.add_argument("file", type=Path)
@@ -107,7 +115,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command:
         try:
             result = research_command(args)
-            sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+            if (
+                args.command == "translation-sheet"
+                and args.format == "markdown"
+                and args.output is None
+            ):
+                from isc_helwigii.translation import render_translation_markdown
+
+                sys.stdout.write(render_translation_markdown(result))
+            else:
+                sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
             return 0
         except (ValueError, OSError, sqlite3.Error, zipfile.BadZipFile) as exc:
             sys.stderr.write(f"error: {exc}\n")
@@ -149,6 +166,22 @@ def research_command(args):
         return run_method(store, "research-dossier", parameters, actor=args.actor)
     if args.command == "runs":
         return store.runs()
+    if args.command == "translation-sheet":
+        from isc_helwigii.translation import build_translation_sheet, render_translation_markdown
+
+        result = build_translation_sheet(store, args.edition_id, args.target_language)
+        if args.output is not None:
+            destination = args.output.expanduser().resolve()
+            if destination == store.path:
+                raise ValueError("export destination must differ from the project")
+            content = (
+                render_translation_markdown(result)
+                if args.format == "markdown"
+                else json.dumps(result, ensure_ascii=False, indent=2) + "\n"
+            )
+            with destination.open("x", encoding="utf-8") as output:
+                output.write(content)
+        return result
     if args.command in ("audit", "reference-set"):
         if args.output is not None and args.output.expanduser().resolve() == store.path:
             raise ValueError("export destination must differ from the project")

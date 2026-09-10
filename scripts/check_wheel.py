@@ -109,6 +109,60 @@ def validate_installed_wheel(wheel_path: Path) -> None:
         )
         if result["outputs"]["corpus"]["edition_count"] != 3 or not result["outputs"]["parallels"]:
             raise SystemExit("installed research dossier did not search the demo corpus")
+        edition = dossier["editions"][0]
+        proposal = Path(temp_dir) / "translation-request.json"
+        proposal.write_text(
+            json.dumps(
+                {
+                    "artifact_id": rows[0]["id"],
+                    "kind": "translation",
+                    "payload": {
+                        "edition_id": edition["id"],
+                        "start": 0,
+                        "end": len(edition["record"]["text"]),
+                        "target_language": "nl",
+                        "text": "Synthetische pakkettest.",
+                        "reference": "wheel fixture",
+                    },
+                    "actor": "wheel-check",
+                    "evidence": [edition["id"]],
+                }
+            ),
+            encoding="utf-8",
+        )
+        annotation = json.loads(
+            run_checked(cli + ["annotate", str(restored), str(proposal)]).stdout
+        )["annotation_id"]
+        run_checked(
+            cli
+            + [
+                "review",
+                str(restored),
+                annotation,
+                "accepted",
+                "--actor",
+                "wheel-review",
+                "--reason",
+                "synthetic package test",
+            ]
+        )
+        report = Path(temp_dir) / "translation.md"
+        sheet = json.loads(
+            run_checked(
+                cli
+                + [
+                    "translation-sheet",
+                    str(restored),
+                    edition["id"],
+                    "--format",
+                    "markdown",
+                    "--output",
+                    str(report),
+                ]
+            ).stdout
+        )
+        if sheet["coverage"]["ratio"] != 1 or "Synthetische pakkettest." not in report.read_text():
+            raise SystemExit("installed translation worksheet did not retain reviewed translation")
         run_checked(cli + ["health", "--database", str(restored), "--json"])
 
 

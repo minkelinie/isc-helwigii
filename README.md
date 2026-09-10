@@ -27,6 +27,7 @@ Open http://127.0.0.1:8501 . The server binds to this computer, telemetry is dis
 - **Research dossier:** select a source passage and retrieve same-language text candidates across the complete corpus, with shared/different tokens, source editions, reviewed exact translations and a saved experiment.
 - **Tablets:** source-specific identities, multiple editions, conflicting source fields, attached images/reports/files and source downloads.
 - **Reading:** passage-anchored transliteration, translation, morphology notes, sign regions, motifs, categories, dates and places; alternative interpretations and append-only review.
+- **Translation workspace:** select an exact source passage, propose and review a translation, inspect uncovered spans and overlapping alternatives, and export an edition-specific worksheet as Markdown or JSON. Coverage measures editorial completion, not accuracy.
 - **Comparison:** same-language lexical overlap and token alignment; manual physical-join proposals with evidence.
 - **Materials:** laboratory, method, calibration, reference group, analytes, units and one-sigma uncertainty; component-wise compatible measurement distances.
 - **Myths:** reviewed passage motifs, undirected overlap networks, witness date intervals, competing explanations and falsifiable hypothesis records.
@@ -48,6 +49,15 @@ isc-helwigii prepare ./research.db EDITION_ID --actor researcher --start 0 --end
 ```
 
 Ranking compares NFC/casefold token sets with full same-language editions using Jaccard overlap, with ties ordered by edition ID. Other editions of the selected artifact are excluded. This is a lexical baseline, so short parallels inside long texts may rank poorly. It does not generate translations. A saved run records the source snapshot IDs, edition manifest checksum, passage, results and implementation; rerun after new sources or reviews.
+
+Open **Vertalen** for the manual translation workflow. Source positions follow your exact passage selection; repeated passages require selecting the intended occurrence. Proposals remain pending until explicitly reviewed. Accepted overlapping spans remain conflicts; missing passages remain untranslated. The worksheet reads one consistent source/review snapshot without changing the project.
+
+```bash
+isc-helwigii translation-sheet research.db EDITION_ID --target-language nl
+isc-helwigii translation-sheet research.db EDITION_ID --format markdown --output translation.md
+```
+
+Without `--output`, the CLI prints the requested format (JSON by default). With `--output`, that file receives the requested format and standard output retains the JSON worksheet. Existing files are never overwritten by file export. Keep the JSON export alongside Markdown for the complete captured worksheet evidence; project bundles preserve the full review history.
 
 ```bash
 isc-helwigii audit ./research.db

@@ -15,6 +15,7 @@ from isc_helwigii.research import editions, run_method
 from isc_helwigii.store import ANNOTATION_KINDS
 from isc_helwigii.ui_corpus import corpus_page
 from isc_helwigii.ui_dossier import prepare_page
+from isc_helwigii.ui_translation import translation_page
 
 
 def choose_artifact(store, key="artifact"):
@@ -509,6 +510,7 @@ def capabilities_page(store, actor):
 PAGES = {
     "Project": project_page,
     "Onderzoeksdossier": lambda store, actor: prepare_page(store, actor, choose_artifact),
+    "Vertalen": lambda store, actor: translation_page(store, actor, choose_artifact),
     "Tabletten": dossier_page,
     "Lezen & annoteren": reading_page,
     "Vergelijken": comparison_page,
