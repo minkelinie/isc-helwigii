@@ -59,6 +59,29 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_argument("--target-language", default="nl")
     sub.add_argument("--format", choices=["json", "markdown"], default="json")
     sub.add_argument("--output", type=Path, help="new export path (never overwritten)")
+    sub = commands.add_parser(
+        "download-model", help="download and verify the pinned local translation model (1.6 GB)"
+    )
+    sub.add_argument("directory", type=Path)
+    sub = commands.add_parser(
+        "translate", help="generate an unreviewed local model translation for a source passage"
+    )
+    sub.add_argument("project", type=Path)
+    sub.add_argument("edition_id")
+    sub.add_argument("--actor", required=True)
+    sub.add_argument("--model-dir", type=Path)
+    sub.add_argument("--start", type=int, default=0)
+    sub.add_argument("--end", type=int)
+    sub.add_argument(
+        "--source-language",
+        help="explicit Sumerian/Akkadian override; recorded with original metadata",
+    )
+    sub.add_argument("--target-language", default="en")
+    sub.add_argument(
+        "--input-format",
+        choices=["transliteration", "complex-transliteration", "cuneiform"],
+        default="transliteration",
+    )
     sub = commands.add_parser("import")
     sub.add_argument("project", type=Path)
     sub.add_argument("file", type=Path)
@@ -140,11 +163,29 @@ def research_command(args):
     from isc_helwigii.research import run_method
     from isc_helwigii.store import ResearchStore
 
+    if args.command == "download-model":
+        from isc_helwigii.local_translation import download_model
+
+        return download_model(args.directory)
     if args.command == "export":
         return export_bundle(ResearchStore(args.source), args.destination)
     if args.command == "restore":
         return {"project": str(restore_bundle(args.source, args.destination).path)}
     store = ResearchStore(args.project)
+    if args.command == "translate":
+        from isc_helwigii.local_translation import propose_model_translation
+
+        return propose_model_translation(
+            store,
+            args.edition_id,
+            model_dir=args.model_dir,
+            actor=args.actor,
+            start=args.start,
+            end=args.end,
+            source_language=args.source_language,
+            input_format=args.input_format,
+            target_language=args.target_language,
+        )
     if args.command == "init":
         store.initialize()
         return {"project": str(store.path)}

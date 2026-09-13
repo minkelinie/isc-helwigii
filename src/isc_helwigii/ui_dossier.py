@@ -113,7 +113,7 @@ def prepare_page(store, actor, choose_artifact):
         )
     if not translations:
         st.info(
-            "Geen beoordeelde exacte vertaling voor deze passage en doeltaal. De app heeft geen generatief vertaalmodel aangesloten."
+            "Geen beoordeelde exacte vertaling voor deze passage en doeltaal. Op de pagina Vertalen kun je een lokaal modelvoorstel naar het Engels maken."
         )
     for candidate in translations:
         st.write(candidate["text"])

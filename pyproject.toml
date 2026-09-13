@@ -39,7 +39,9 @@ Issues = "https://github.com/minkelinie/isc-helwigii/issues"
 Changelog = "https://github.com/minkelinie/isc-helwigii/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
-ui = ["streamlit>=1.35,<2"]
+ui = ["streamlit>=1.41,<2"]
+translation = ["torch>=2.6,<3", "transformers>=5.0,<6", "safetensors>=0.5,<1", "sentencepiece>=0.2,<1"]
+evaluation = ["sacrebleu>=2.5,<3"]
 dev = [
     "pytest>=8.2",
     "pytest-cov>=5.0",

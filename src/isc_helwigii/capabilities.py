@@ -18,8 +18,8 @@ CAPABILITIES = [
     },
     {
         "workflow": "Vertalen",
-        "available": "Passagekeuze, voorstellen en review; vertaalwerkblad met open passages, overlapconflicten en Markdown/JSON-export; geheugen van beoordeelde exacte parallelpassages",
-        "validation": "Geen generatief vertaalmodel; vakinhoudelijke beoordeling vereist",
+        "available": "Lokale modelvoorstellen Sumerisch/Akkadisch naar Engels; passagekeuze en review; werkblad met open passages, overlapconflicten en Markdown/JSON-export; beoordeelde exacte parallelpassages",
+        "validation": "Experimentele conceptvertalingen met modelversie en bron; vakinhoudelijke beoordeling vereist; geen fotoherkenning of Nederlandse modeluitvoer",
     },
     {
         "workflow": "Categoriseren",

@@ -6,4 +6,4 @@ Begin met de [lokale onderzoekshandleiding](local-research-guide.md). De [produc
 
 De interface start met `isc-helwigii start onderzoek.db`. Bronnen, edities, annotaties, beoordelingen, media en experimenten blijven in het lokale projectbestand.
 
-Dit is een alpha. Automatische OCR, getrainde vertaling, 3D-joins, geografische herkomst en prehistorische datering zijn nog niet als gevalideerde modellen geïntegreerd. De huidige analyses gebruiken uitlegbare verkennende methoden en melden ontbrekend bewijs.
+Dit is een alpha. Een lokaal model maakt experimentele Engelse vertaalvoorstellen uit Sumerisch en Akkadisch; elk voorstel vraagt expliciete beoordeling. Automatische OCR, 3D-joins, geografische herkomst en prehistorische datering zijn nog niet als gevalideerde modellen geïntegreerd. De analyses tonen hun bron en beperkingen.

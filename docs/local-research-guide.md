@@ -37,7 +37,28 @@ Open **Vertalen** voor een werkblad per broneditie en doeltaal. Plak een ongewij
 
 Het werkblad toont geaccepteerde vertalingen, open passages en conflicten. Overlappende geaccepteerde voorstellen worden als één conflicterende groep getoond, ook als de overlap via een derde voorstel loopt. De app knipt vertalingen niet op basis van bronposities en kiest geen winnaar. Los een conflict op door een voorstel gemotiveerd af te wijzen of een passende herziening te beoordelen. Een herziening vervangt uitsluitend dezelfde editie, passage en doeltaal.
 
-De dekkingsgraad telt Unicode-tekens zonder witruimte met één geaccepteerde, niet-overlappende vertaling. Schademarkeringen tellen als broninhoud. Dit meet redactionele dekking, geen vertaalnauwkeurigheid of leesbaarheid. Een tekst zonder inhoud krijgt geen percentage. Bronpassages worden niet aangevuld of automatisch vertaald.
+De dekkingsgraad telt Unicode-tekens zonder witruimte met één geaccepteerde, niet-overlappende vertaling. Schademarkeringen tellen als broninhoud. Dit meet redactionele dekking, geen vertaalnauwkeurigheid of leesbaarheid. Een tekst zonder inhoud krijgt geen percentage. Modelvoorstellen worden uitsluitend op verzoek gemaakt en tellen pas na expliciete beoordeling mee.
+
+### Lokaal modelvoorstel
+
+Installeer eenmalig de bibliotheken en het model:
+
+```bash
+python -m pip install -e '.[ui,translation]'
+isc-helwigii download-model ./models/cuneiformBase-400m
+export ISC_HELWIGII_TRANSLATION_MODEL="$PWD/models/cuneiformBase-400m"
+isc-helwigii start onderzoek.db
+```
+
+Kies in **Vertalen** een ongewijzigde passage, doeltaal **en**, de onderbouwde brontaal (Sumerisch of Akkadisch) en de invoervorm. Klik op **Lokaal vertaalvoorstel maken**. Het modelpad staat in de interface; zonder omgevingsvariabele gebruikt de app `~/.cache/isc-helwigii/cuneiformBase-400m`. Alleen het downloadcommando gebruikt internet. De bibliotheken laden uitsluitend lokale, op SHA-256 gecontroleerde safetensors; modelcode van internet wordt niet uitgevoerd.
+
+Het model [cuneiformBase-400m van B. Lee Drake](https://huggingface.co/Thalesian/cuneiformBase-400m) (Apache-2.0) is vastgezet op versie `5cd996298b654eb60ea3cc0ed30e62ccefb94aef`. Het maakt Engelse conceptvertalingen van transliteraties of Unicode-spijkerschrift. Het leest geen foto's. Nederlands blijft beschikbaar voor handmatig ingevoerde vertalingen. Modeluitkomsten zijn experimenteel; de maker rapporteert zwakkere prestaties voor Sumerisch en afwijkende Akkadische corpora. Controleer de uitkomst op namen, aantallen, weglatingen en verzonnen tekst.
+
+Een voorstel bewaart de editie, exacte Unicode-posities, oorspronkelijke en gekozen taal, modelbestanden, versie, prompt, generatie-instellingen en bibliotheekversies in een experiment. Een taalkeuze corrigeert de bronmetadata niet. Broninhoud blijft intact; er ontstaat geen automatische acceptatie. Invoer boven 512 tokens, onbekende tekens en onvolledige uitvoer worden geweigerd: kies dan een kortere passage of werk handmatig. Generatie gebruikt CPU en kan bij de eerste aanvraag enkele seconden extra duren.
+
+```bash
+isc-helwigii translate onderzoek.db EDITIE_ID --actor 'onderzoeker' --start 0 --end 40 --target-language en --input-format transliteration --model-dir ./models/cuneiformBase-400m
+```
 
 Download het werkblad als leesbare **Markdown** en als **JSON** met bronidentiteit, bronrechten, annotaties, laatste beoordelingen en fingerprint. Beide zijn een momentopname; exporteer opnieuw na wijzigingen. De export leest één consistente databasestand en verandert het project niet. De volledige reviewhistorie blijft in het project en de projectbundel. Via de CLI:
 
@@ -129,6 +150,6 @@ Dezelfde momentopname, as en seed geven dezelfde export. Toegevoegde bronnen, ed
 
 ## Productgrenzen en vervolgstappen
 
-Deze versie ondersteunt handmatige filologische workflows en verkennende analyse. Voor een volledig gevalideerd automatisch onderzoeksplatform ontbreken nog: omvangrijke taalgescheiden gold sets, lokale OCR- en vertaalmodellen, geometrische joins, geharmoniseerde laboratoriumreferenties, gekalibreerde herkomstmodellen en echte historische modelvergelijking met resampling en biasanalyse. De productplanning houdt die onderzoekstaken open.
+Deze versie ondersteunt lokale modelvoorstellen, handmatige filologische workflows en verkennende analyse. Voor een volledig gevalideerd automatisch onderzoeksplatform ontbreken nog: omvangrijke onafhankelijk beoordeelde taalgescheiden gold sets, lokale OCR, geometrische joins, geharmoniseerde laboratoriumreferenties, gekalibreerde herkomstmodellen en echte historische modelvergelijking met resampling en biasanalyse. De productplanning houdt die onderzoekstaken open.
 
 Het project is voor één lokale onderzoeker ontworpen. Namen in beoordelingen zijn geen geauthenticeerde gebruikersrollen. Bijlagen zijn maximaal 32 MiB; herstel ondersteunt bundles tot 4 GiB gedecomprimeerde projectdata. Grote-corpus-, Windows-, GPU-, toegankelijkheids- en meergebruikertests blijven afzonderlijke acceptatiepunten.

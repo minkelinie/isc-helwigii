@@ -80,6 +80,18 @@ def validate_installed_wheel(wheel_path: Path) -> None:
                 f"module CLI version mismatch: import={imported!r}, cli={cli_version!r}"
             )
 
+        run_checked(
+            [
+                str(python),
+                "-c",
+                "import sys; from isc_helwigii.local_translation import model_status; "
+                "from isc_helwigii.translation_evaluation import evaluate_translation_set; "
+                "assert not model_status('missing-model')['installed']; "
+                "assert 'torch' not in sys.modules and 'transformers' not in sys.modules",
+            ],
+            cwd=Path(temp_dir),
+        )
+
         config = json.loads(
             run_checked([str(python), "-m", "isc_helwigii.cli", "config", "--json"]).stdout
         )

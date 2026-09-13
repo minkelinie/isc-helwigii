@@ -160,7 +160,7 @@ def render_translation_markdown(sheet):
             f"Redactioneel gedekt: **{percentage}** "
             f"({coverage['translated_characters']}/{coverage['total_characters']} tekens zonder witruimte). "
             "Dit is geen nauwkeurigheidsscore. Alleen geaccepteerde, niet-overlappende vertalingen tellen mee.",
-            "Geen automatisch vertaalmodel gebruikt. Ontbrekende tekst blijft open; "
+            "Modelvoorstellen zijn als afgeleid gemarkeerd en vragen expliciete beoordeling. Ontbrekende tekst blijft open; "
             "overlappende geaccepteerde voorstellen vragen een expliciet redactioneel besluit.",
         ]
     )

@@ -2,6 +2,8 @@
 
 import hashlib
 import json
+import shlex
+from pathlib import Path
 
 import streamlit as st
 
@@ -40,11 +42,21 @@ def _show_annotation(annotation, source):
     )
     left, right = st.columns(2)
     left.caption("Toegewezen bronpassage")
-    left.code(source[payload["start"] : payload["end"]], language=None)
+    left.code(source[payload["start"] : payload["end"]], language=None, wrap_lines=True)
     right.caption("Voorgestelde vertaling")
-    right.code(payload["text"], language=None)
+    right.code(payload["text"], language=None, wrap_lines=True)
+    if model := payload.get("model"):
+        st.text(
+            f"Model: {model.get('id', 'onbekend')}\n"
+            f"Revisie: {model.get('revision', 'onbekend')}\n"
+            f"Run-ID: {model.get('run_id', 'onbekend')}"
+        )
+        st.warning(
+            "Experimentele modelvertaling; controleer de lezing en betekenis aan de bron. "
+            "Modeluitvoer kan onjuist of onvolledig zijn en vraagt een expliciete beoordeling."
+        )
     st.caption("Bibliografische verwijzing of brontekst")
-    st.code(payload.get("reference") or "Niet opgegeven", language=None)
+    st.code(payload.get("reference") or "Niet opgegeven", language=None, wrap_lines=True)
     st.caption(
         f"Voorsteller: {annotation['actor']} · Herkomst: {ORIGIN.get(annotation['origin'], annotation['origin'])}"
     )
@@ -92,12 +104,141 @@ def _show_blocks(sheet, selected):
                     _show_annotation(annotation, sheet["edition"].get("text", ""))
 
 
+def _choose_english(project_key, edition_id, passage, start):
+    """Change the target before widgets render, carrying the exact source selection."""
+    st.session_state[_key(project_key, edition_id, "target")] = "en"
+    english_scope = _key(project_key, edition_id, "en")
+    st.session_state[english_scope + "_passage"] = passage
+    if start is not None:
+        st.session_state[_key(english_scope, passage, "occurrence")] = start
+
+
+def _model_proposal(store, actor, edition, target, project_key, passage, start, end):
+    st.subheader("Lokaal modelvoorstel")
+    st.warning(
+        "Dit lokale model is experimenteel en ondersteunt alleen Sumerisch en Akkadisch "
+        "naar Engels. De lokale proef bevat fouten in aantallen en Akkadische zinnen. "
+        "Controleer ieder voorstel aan de bron; er is geen garantie op juistheid. "
+        "Genereren begint alleen wanneer je op de knop klikt."
+    )
+    # Keep manual editing available while the optional model integration is unavailable.
+    try:
+        from isc_helwigii import local_translation
+    except ImportError as exc:
+        st.warning(f"De lokale modelmodule is niet beschikbaar: {exc}")
+        return
+
+    edition_id = edition["id"]
+    scope = _key(project_key, edition_id, target)
+    model_scope = _key(project_key, edition_id, "model")
+    if target != "en":
+        st.info(
+            "Het lokale model kan alleen een Engels voorstel opslaan. "
+            "Kies Engels (en) als doeltaal om het te gebruiken."
+        )
+        st.button(
+            "Engels kiezen",
+            key=scope + "_choose_english",
+            on_click=_choose_english,
+            args=(project_key, edition_id, passage, start),
+        )
+    try:
+        default_language = local_translation.canonical_language(edition.get("language"))
+    except ValueError:
+        default_language = None
+    languages = {
+        None: "Kies de brontaal expliciet",
+        "sux": "Sumerisch (sux)",
+        "akk": "Akkadisch (akk)",
+    }
+    source_language = st.selectbox(
+        "Brontaal voor model",
+        list(languages),
+        index=list(languages).index(default_language),
+        format_func=languages.get,
+        key=model_scope + "_language",
+    )
+    if source_language is None:
+        st.info(
+            "De brontaal is onbekend of wordt niet ondersteund. Kies alleen Sumerisch of "
+            "Akkadisch als de geselecteerde passage daadwerkelijk in die taal is geschreven."
+        )
+    input_format = st.selectbox(
+        "Invoerformaat voor model",
+        ["transliteration", "complex-transliteration", "cuneiform"],
+        key=model_scope + "_input_format",
+        help="Kies het formaat van de ongewijzigde bronpassage hierboven.",
+    )
+    model_path = st.text_input(
+        "Lokaal modelpad",
+        value=str(local_translation.default_model_dir()),
+        key=_key(project_key, "model_dir"),
+        help="Map met lokale gewichten; standaard via ISC_HELWIGII_TRANSLATION_MODEL.",
+    )
+    st.caption(f"Model: {local_translation.MODEL_ID}")
+    model_dir = None
+    try:
+        if model_path.strip():
+            model_dir = Path(model_path).expanduser()
+            status = local_translation.model_status(model_dir)
+        else:
+            status = {"installed": False, "error": "Vul een lokaal modelpad in."}
+    except (ValueError, OSError) as exc:
+        status = {"installed": False, "error": str(exc)}
+    available = status["installed"] and not status.get("error")
+    if available:
+        st.info("Modelbestanden aangetroffen. Volledige verificatie gebeurt bij het genereren.")
+        if status.get("revision"):
+            st.text(f"Modelrevisie: {status['revision']}")
+    else:
+        st.warning(status.get("error") or "Het lokale model is nog niet geïnstalleerd.")
+        st.caption("Installeer het model met:")
+        st.code(
+            "isc-helwigii download-model " + (shlex.quote(str(model_dir)) if model_dir else "PATH"),
+            language=None,
+        )
+    source = edition.get("text", "")
+    valid = start is not None and bool(source.strip()) and source[start:end] == passage
+    can_generate = valid and available and source_language is not None and target == "en"
+    if st.button(
+        "Lokaal vertaalvoorstel maken",
+        key=scope + "_model_propose",
+        disabled=not can_generate,
+    ):
+        if not can_generate:
+            st.error("Controleer de bronpassage, talen en lokale modelbestanden.")
+            return
+        try:
+            with st.spinner("Lokaal vertaalvoorstel maken; modelbestanden worden geverifieerd…"):
+                result = local_translation.propose_model_translation(
+                    store,
+                    edition_id,
+                    model_dir=model_dir,
+                    actor=actor,
+                    start=start,
+                    end=end,
+                    source_language=source_language,
+                    input_format=input_format,
+                    target_language=target,
+                )
+        except (ValueError, OSError) as exc:
+            st.error(f"Lokaal vertaalvoorstel niet gemaakt: {exc}")
+        else:
+            st.session_state[scope + "_review_annotation"] = result["annotation_id"]
+            st.session_state[scope + "_notice"] = (
+                "Lokaal modelvoorstel opgeslagen; in afwachting van beoordeling. "
+                "Controleer het voorstel voordat je een besluit vastlegt."
+            )
+            st.rerun()
+
+
 def translation_page(store, actor, choose_artifact):
     st.header("Vertalen")
     st.write("Werk per broneditie en doeltaal aan een controleerbare vertaling.")
     st.info(
-        "Er is geen generatief vertaalmodel aangesloten. Je voert zelf een vertaling "
-        "of een vertaling uit een bron in; ieder voorstel vraagt een afzonderlijke beoordeling."
+        "Voer zelf een vertaling of een vertaling uit een bron in, of laat een lokaal model "
+        "een experimenteel voorstel maken. Ieder voorstel wordt in afwachting opgeslagen "
+        "en vraagt een afzonderlijke beoordeling."
     )
     project_key = _key(str(store.path.resolve()))
     dossier = choose_artifact(store, project_key + "_artifact")
@@ -115,10 +256,11 @@ def translation_page(store, actor, choose_artifact):
         ),
         key=_key(project_key, dossier["id"], "edition"),
     )
+    target_key = _key(project_key, edition_id, "target")
+    st.session_state.setdefault(target_key, "nl")
     target = st.text_input(
         "Doeltaal",
-        value="nl",
-        key=_key(project_key, edition_id, "target"),
+        key=target_key,
         help="Taalcode, bijvoorbeeld nl voor Nederlands of en voor Engels.",
     ).strip()
     if not target:
@@ -157,9 +299,9 @@ def translation_page(store, actor, choose_artifact):
         st.success(notice)
 
     st.subheader("Vertaling voorstellen")
+    st.session_state.setdefault(scope + "_passage", source)
     passage = st.text_area(
         "Ongewijzigde bronpassage",
-        value=source,
         key=scope + "_passage",
         disabled=not source.strip(),
         help="Kopieer exact uit de bron; behoud spaties, regeleinden en Unicode-tekens.",
@@ -190,6 +332,8 @@ def translation_page(store, actor, choose_artifact):
         st.info("Kopieer een ongewijzigde passage uit de brontekst hierboven.")
     else:
         st.caption(f"Gekozen Unicode-posities: {start}–{end} (begin inclusief, einde exclusief).")
+    _model_proposal(store, actor, edition, target, project_key, passage, start, end)
+    st.subheader("Handmatig voorstel")
     span_key = _key(scope, start, end, passage)
     generation_key = span_key + "_generation"
     form_key = _key(span_key, st.session_state.get(generation_key, 0))

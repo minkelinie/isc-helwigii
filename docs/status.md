@@ -1,4 +1,4 @@
-# Current software status — 10 September 2026
+# Current software status — 13 September 2026
 
 The installable application is `src/isc_helwigii` on `codex/local-research-workbench`. Legacy root scripts and model files are historical experiments, not connected product features. This remains a local research alpha.
 
@@ -10,6 +10,7 @@ The installable application is `src/isc_helwigii` on `codex/local-research-workb
 | Research dossier | Selected passage, all-corpus lexical ranking, token alignment/differences, exact reviewed translation memory, frozen experiment and JSON export | Software tested; no scientific retrieval benchmark or translation model accuracy claim |
 | Reading and review | Passage annotations, alternative proposals and append-only accepted/rejected decisions | Researcher attribution is not authentication; editorial acceptance is not automatic historical truth |
 | Translation workspace | Exact passage selection, attributed proposals and review, edition/target-specific worksheet, overlap conflicts, uncovered passages, Markdown/JSON export and CLI | Editorial coverage counts non-whitespace Unicode characters; it does not measure translation accuracy or infer missing text |
+| Local model translation | Pinned cuneiformBase-400m, verified local safetensors, CPU inference, Sumerian/Akkadian-to-English proposals in UI and CLI, recorded source/model/runtime provenance | Experimental model output; explicit review required. No photograph OCR or Dutch model output. Inputs over 512 tokens, unknown tokens and unfinished output are refused |
 | Images, material and myths | Media/region annotation, manual join records, lab comparisons, motif overlap and competing hypotheses | OCR, 3D joins, calibrated provenance, ancestry and prehistoric dating remain research work |
 
 The real local project contains 37,139 source-bound editions. A full-corpus dossier for P100003 took 5.432 seconds with 29.0 MiB peak process RSS on the existing macOS/Python 3.14 environment. Ten lexical candidates were returned; translation memory abstained because no accepted exact Dutch translation was available. This is one performance observation, not a quality benchmark. The run adds an experiment; it does not annotate or accept scientific claims.
@@ -26,8 +27,18 @@ Use **Onderzoeksdossier** in the app. Keep the full source text or paste an unch
 
 Search ranks full editions in exactly the same registered language, excluding all editions of the query artifact. NFC normalization and casefolding retain index digits and damage brackets. Pure placeholders do not contribute. Scores are lexical overlap, not probabilities. Long texts can bury short parallels; differing language labels are not automatically mapped to the same language. Saved results reflect their captured source/review state and should be rerun after new evidence.
 
-## Work still needed for automatic translation
+## Local translation delivery
 
-Connect task- and language-specific models, import scientific text/translation alignments with source terms, assemble independently reviewed reference sets, and measure errors and abstention by language and genre. The predominantly Sumerian local corpus cannot be validated by an unrelated Akkadian model score. Image translation additionally needs tested sign/line recognition. No existing model weight has been represented as a validated translator in this release.
+The [cuneiformBase-400m model by B. Lee Drake](https://huggingface.co/Thalesian/cuneiformBase-400m) is downloaded separately, pinned to revision `5cd996298b654eb60ea3cc0ed30e62ccefb94aef`. The public model card declares Apache-2.0. Model weights are not redistributed inside the wheel or Git repository. `download-model` is the explicit network operation; inference uses only verified local files and does not execute remote model code.
+
+Software verification on 12 September: the 137-test suite passed with 89% package coverage; Ruff and documentation checks passed. The actual downloaded model also ran through Streamlit AppTest on the CC0 MTAAC/CDLI source P432172. Selecting line 6 produced “king of Sumer and Akkad,” as an inferred, pending proposal with its exact source range and an experiment. The source stayed unchanged and an ordinary UI rerun created no duplicate. The published reference adds “and” at the start. The live browser then generated a full-document proposal, preserved the source and displayed the model/run identifiers. This is integration evidence, not expert validation. Python 3.14.6, PyTorch 2.13.0 and Transformers 5.15.0 were used on CPU.
+
+`scripts/evaluate_translation.py` compares a sourced JSON reference set with actual local predictions using SacreBLEU BLEU and chrF. It preserves dataset provenance, predictions, refusals, model settings and metric signatures, and reports languages separately. Refused inputs remain in metric denominators as empty predictions. Install the optional `evaluation` dependencies to run it. Small samples with unknown training overlap do not establish general translation quality.
+
+Independent expert review, representative language/genre reference sets and controlled training/test separation remain scientific work. The predominantly Sumerian local corpus cannot be validated by an unrelated Akkadian model score. Image translation additionally needs tested sign/line recognition. No local model output is automatically accepted as a historical claim.
+
+The [20-pair local comparison](translation-smoke-2026-09-12.md) exposed numerical errors and gloss-like Akkadian output. All 15 Sumerian examples have source-segment overlap with a published training file; their higher reference-similarity score is not independent validation. Review also identified damage-only inputs such as `[x x]` and `x-x` reaching inference; these are now refused before any run or proposal is written, with six regression cases. Long source/translation/reference displays wrap, and switching the target to English preserves the selected passage without a session-state warning.
+
+Final local checks on 13 September: 143 tests passed, 89% package coverage, Ruff and documentation checks passed. Model/runtime libraries remain optional; the distribution smoke check imports the translation modules without PyTorch or Transformers installed.
 
 The unresolved legacy code/data/model license declarations are preserved. This change does not relicense sources or constitute a formal public release. Older verification reports describe their dated commits and must not be treated as current feature or scientific performance claims.

@@ -2,7 +2,7 @@
 
 A local cuneiform research workbench for collecting evidence, annotating passages, reviewing interpretations, comparing witnesses and measurements, and exporting reproducible experiments.
 
-This is an **alpha research workbench**. Translation assistance currently retrieves reviewed exact parallel passages. Text and material comparisons and motif networks are exploratory baselines. Automatic sign recognition, trained translation, geometric 3D joins and validated prehistoric ancestry/dating are not included. The application shows this distinction in its capability register.
+This is an **alpha research workbench**. Translation assistance generates local Sumerian/Akkadian-to-English model proposals and retrieves reviewed exact parallel passages. Every model proposal records its source passage, model revision and settings and remains pending until explicitly reviewed. Text and material comparisons and motif networks are exploratory baselines. Automatic sign recognition, geometric 3D joins and validated prehistoric ancestry/dating are not included.
 
 ## Start locally
 
@@ -50,7 +50,20 @@ isc-helwigii prepare ./research.db EDITION_ID --actor researcher --start 0 --end
 
 Ranking compares NFC/casefold token sets with full same-language editions using Jaccard overlap, with ties ordered by edition ID. Other editions of the selected artifact are excluded. This is a lexical baseline, so short parallels inside long texts may rank poorly. It does not generate translations. A saved run records the source snapshot IDs, edition manifest checksum, passage, results and implementation; rerun after new sources or reviews.
 
-Open **Vertalen** for the manual translation workflow. Source positions follow your exact passage selection; repeated passages require selecting the intended occurrence. Proposals remain pending until explicitly reviewed. Accepted overlapping spans remain conflicts; missing passages remain untranslated. The worksheet reads one consistent source/review snapshot without changing the project.
+Open **Vertalen** for model-assisted or manual translation. Source positions follow your exact passage selection; repeated passages require selecting the intended occurrence. Proposals remain pending until explicitly reviewed. Accepted overlapping spans remain conflicts; missing passages remain untranslated. The worksheet reads one consistent source/review snapshot without changing the project.
+
+For local model translation, install the optional libraries and download the pinned 1.6 GB model once:
+
+```bash
+python -m pip install -e '.[ui,translation]'
+isc-helwigii download-model ./models/cuneiformBase-400m
+export ISC_HELWIGII_TRANSLATION_MODEL="$PWD/models/cuneiformBase-400m"
+isc-helwigii start research.db
+# CLI equivalent; use an actual source edition ID:
+isc-helwigii translate research.db EDITION_ID --actor 'researcher' --target-language en
+```
+
+The adapter uses [B. Lee Drake's cuneiformBase-400m](https://huggingface.co/Thalesian/cuneiformBase-400m) (Apache-2.0), pinned to revision `5cd996298b654eb60ea3cc0ed30e62ccefb94aef`. Inference loads verified local safetensors on CPU with no remote model code or network request. Select Sumerian/Akkadian, English (`en`) and the correct input form: transliteration, complex transliteration or Unicode cuneiform. The original source is preserved, including diacritics and damage marks. Inputs beyond 512 tokens, unknown tokens and unfinished outputs are refused. Select shorter passages when needed. The model does not read photographs or produce Dutch translations. Its output is experimental: inspect names, quantities, omissions and invented content, especially in Sumerian and unfamiliar genres. Manual proposals can use any target language.
 
 ```bash
 isc-helwigii translation-sheet research.db EDITION_ID --target-language nl
