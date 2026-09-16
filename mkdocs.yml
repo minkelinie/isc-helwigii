@@ -1,8 +1,7 @@
-site_name: OX-Stealth Myth Hunter
-site_description: Multi-lingual Cuneiform Corpus Pipeline for Digital Humanities
+site_name: I.S.C. Helwigii
+site_description: Evidence-first cuneiform research workbench
 site_author: Mink Helwig
-site_url: https://signumcore.github.io/ox-stealth-myth-hunter/
-repo_url: https://github.com/SignumCore/ox-stealth-myth-hunter
+repo_url: https://github.com/minkelinie/isc-helwigii
 edit_uri: edit/main/docs/
 
 theme:
@@ -17,26 +16,20 @@ theme:
       accent: amber
       toggle: {icon: material/weather-sunny, name: Switch to light mode}
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.tabs.link
 
 nav:
   - Home: index.md
-  - Quickstart: quickstart.md
-  - Architecture:
-      - Overview: architecture/overview.md
-      - Database Schema: architecture/schema.md
-      - Pipeline Stages: architecture/pipeline.md
-  - API Reference: api.md
-  - Dashboard: dashboard.md
-  - Publishing: publishing.md
-  - Contributing: contributing.md
-  - Changelog: changelog.md
+  - Local research guide: local-research-guide.md
+  - Local product plan: superpowers/plans/2026-09-05-local-research-product.md
+  - Verification record: verification-2026-09-05.md
+  - Foundation design: plans/2026-09-04-evidence-first-foundation-design.md
+  - Implementation plan: superpowers/plans/2026-09-04-repository-test-foundation.md
+  - Repository policy: repository-policy.md
 
 plugins:
   - search
@@ -44,7 +37,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [ox_stealth]
+          paths: [src]
           options:
             show_source: true
             docstring_style: google
@@ -64,6 +57,4 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/SignumCore/ox-stealth-myth-hunter
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/signumcore/ox-stealth
+      link: https://github.com/minkelinie/isc-helwigii
