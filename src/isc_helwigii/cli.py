@@ -82,6 +82,18 @@ def build_parser() -> argparse.ArgumentParser:
         choices=["transliteration", "complex-transliteration", "cuneiform"],
         default="transliteration",
     )
+    sub = commands.add_parser(
+        "recheck-translation", help="append an offline quality check of a saved translation"
+    )
+    sub.add_argument("project", type=Path)
+    sub.add_argument("annotation_id")
+    sub.add_argument("--actor", required=True)
+    sub.add_argument("--source-language", choices=["sux", "akk"], required=True)
+    sub.add_argument(
+        "--input-format",
+        choices=["transliteration", "complex-transliteration", "cuneiform"],
+        required=True,
+    )
     sub = commands.add_parser("import")
     sub.add_argument("project", type=Path)
     sub.add_argument("file", type=Path)
@@ -172,6 +184,16 @@ def research_command(args):
     if args.command == "restore":
         return {"project": str(restore_bundle(args.source, args.destination).path)}
     store = ResearchStore(args.project)
+    if args.command == "recheck-translation":
+        from isc_helwigii.translation_recheck import recheck_translation
+
+        return recheck_translation(
+            store,
+            args.annotation_id,
+            actor=args.actor,
+            source_language=args.source_language,
+            input_format=args.input_format,
+        )
     if args.command == "translate":
         from isc_helwigii.local_translation import propose_model_translation
 

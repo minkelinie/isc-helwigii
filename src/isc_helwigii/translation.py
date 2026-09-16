@@ -4,6 +4,8 @@ import json
 import re
 
 from isc_helwigii.store import canonical, digest, required
+from isc_helwigii.translation_quality import render_quality_text
+from isc_helwigii.translation_recheck import attach_quality_rechecks
 
 
 def build_translation_sheet(store, edition_id, target_language="nl"):
@@ -71,6 +73,7 @@ def build_translation_sheet(store, edition_id, target_language="nl"):
                     "review": review,
                 }
             )
+        attach_quality_rechecks(con, annotations, edition)
     superseded = {a["supersedes"] for a in annotations if a["status"] == "accepted"}
     for annotation in annotations:
         if annotation["id"] in superseded:
@@ -199,6 +202,9 @@ def render_translation_markdown(sheet):
                     ),
                 ]
             )
+            if checks := payload.get("quality_checks"):
+                parts.append(_literal(render_quality_text(checks)))
+            parts.extend(_render_rechecks(annotation))
     inactive = [a for a in sheet["annotations"] if a["status"] != "accepted"]
     if inactive:
         parts.append("## Overige voorstellen — niet opgenomen in de vertaling")
@@ -212,6 +218,9 @@ def render_translation_markdown(sheet):
                     f"Referentie: {payload.get('reference') or 'niet opgegeven'}"
                 )
             )
+            if checks := payload.get("quality_checks"):
+                parts.append(_literal(render_quality_text(checks)))
+            parts.extend(_render_rechecks(annotation))
     parts.extend(
         [
             "## Momentopname",
@@ -220,7 +229,19 @@ def render_translation_markdown(sheet):
                 f"SHA-256 werkblad: {sheet['fingerprint']}"
             ),
             "Voor de volledige vastgelegde invoer en annotatiegegevens: bewaar ook de JSON-export. "
-            "Bereid opnieuw voor na nieuwe voorstellen of beoordelingen.",
+            "Bereid opnieuw voor na nieuwe voorstellen, beoordelingen of hercontroles.",
         ]
     )
     return "\n\n".join(parts) + "\n"
+
+
+def _render_rechecks(annotation):
+    return [
+        _literal(
+            f"Hercontrole · {run['created_at']}\nOnderzoeker: {run['actor']}\n"
+            f"Run-ID: {run['id']}\n"
+            "Deze controle wijzigt de oorspronkelijke vertaling of beoordeling niet.\n"
+            + render_quality_text(run["outputs"])
+        )
+        for run in annotation.get("quality_rechecks", [])
+    ]

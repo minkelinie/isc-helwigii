@@ -1,4 +1,4 @@
-# Current software status — 13 September 2026
+# Current software status — 16 September 2026 (development branch)
 
 The installable application is `src/isc_helwigii` on `codex/local-research-workbench`. Legacy root scripts and model files are historical experiments, not connected product features. This remains a local research alpha.
 
@@ -11,6 +11,8 @@ The installable application is `src/isc_helwigii` on `codex/local-research-workb
 | Reading and review | Passage annotations, alternative proposals and append-only accepted/rejected decisions | Researcher attribution is not authentication; editorial acceptance is not automatic historical truth |
 | Translation workspace | Exact passage selection, attributed proposals and review, edition/target-specific worksheet, overlap conflicts, uncovered passages, Markdown/JSON export and CLI | Editorial coverage counts non-whitespace Unicode characters; it does not measure translation accuracy or infer missing text |
 | Local model translation | Pinned cuneiformBase-400m, verified local safetensors, CPU inference, Sumerian/Akkadian-to-English proposals in UI and CLI, recorded source/model/runtime provenance | Experimental model output; explicit review required. No photograph OCR or Dutch model output. Inputs over 512 tokens, unknown tokens and unfinished output are refused |
+| Translation quality screening | New proposals record source-anchored additive-count comparisons against digits and complete English number phrases, plus name cues, warnings and Markdown/JSON evidence | Restricted notation; no unit/entity alignment or semantic validation. Unsupported phrases are explicit; no automatic correction or acceptance |
+| Saved translation rechecks | Explicit UI/CLI check of an existing proposal, append-only experiment history, worksheet and backup export | Original proposal, model run, quality report and reviews remain intact; screening is not a new translation or editorial decision |
 | Images, material and myths | Media/region annotation, manual join records, lab comparisons, motif overlap and competing hypotheses | OCR, 3D joins, calibrated provenance, ancestry and prehistoric dating remain research work |
 
 The real local project contains 37,139 source-bound editions. A full-corpus dossier for P100003 took 5.432 seconds with 29.0 MiB peak process RSS on the existing macOS/Python 3.14 environment. Ten lexical candidates were returned; translation memory abstained because no accepted exact Dutch translation was available. This is one performance observation, not a quality benchmark. The run adds an experiment; it does not annotate or accept scientific claims.
@@ -41,4 +43,14 @@ The [20-pair local comparison](translation-smoke-2026-09-12.md) exposed numerica
 
 Final local checks on 13 September: 143 tests passed, 89% package coverage, Ruff and documentation checks passed. Model/runtime libraries remain optional; the distribution smoke check imports the translation modules without PyTorch or Transformers installed.
 
+The [14 September local quality-screening change](translation-quality-2026-09-14.md) addresses the numerical failure observations with review evidence. It does not change model weights or establish better translation accuracy. This work was validated locally before inclusion in the development-branch update.
+
+Final local verification on 14 September: 179 tests passed, 89% package coverage, Ruff and documentation checks passed. The final wheel passed isolated installation without runtime dependencies. Two actual model generations reproduced the known numerical errors and persisted their warnings without changing either source edition. The browser displayed the saved evidence in the separate test project.
+
+The [15 September update](translation-quality-2026-09-15.md) recognizes full English cardinal and ordinal phrases, preserves unsupported expressions and keeps v1 reports unchanged. Final checks: 234 tests passed, 90% coverage, Ruff, documentation and isolated wheel installation passed. Eleven controlled comparisons against the previous wheel and rechecking all twenty saved outputs confirmed the intended changes. Source-side metrology assumptions and scientific validation limits remain unchanged.
+
+The [saved proposal recheck workflow](translation-recheck-2026-09-16.md), implemented on 15–16 September, adds an explicit offline check without changing the original annotation or review. All 248 tests passed with 90% coverage. Two historical model proposals retained identical source/annotation/review dossiers and original model runs; separate v2 checks survived project export and restore. The live browser separately exercised P127343. An additional agent review was unavailable because of a usage limit; no independent code-review result is claimed for this round.
+
 The unresolved legacy code/data/model license declarations are preserved. This change does not relicense sources or constitute a formal public release. Older verification reports describe their dated commits and must not be treated as current feature or scientific performance claims.
+
+The 16 September GitHub branch update includes the quality-screening and saved-proposal recheck changes, their tests and documentation. Research databases, downloaded model weights and generated local integration artifacts remain outside Git. The update does not merge the pull request or create a release.

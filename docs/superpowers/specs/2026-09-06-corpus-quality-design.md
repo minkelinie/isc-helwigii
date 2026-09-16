@@ -32,3 +32,7 @@ Visual direction: keep the existing Streamlit typography, theme and keyboard con
 ## Acceptance
 
 Full source counts and independent SQL totals agree on the real corpus. Determinism, no mutation, empty projects, mixed/missing metadata, duplicate normalization, accepted/rejected/superseded/conflicting annotations, cross-edition and transitive excluded-bridge leakage, JSON export refusal and UI interactions have tests. Run full pytest, Ruff, wheel lifecycle and existing documentation check. An independent review checks implementation against this spec. Publish on the existing approved branch/PR only; do not merge main.
+
+## Discovered integrity hardening
+
+The initial independent review reproduced that matching column names and immutability triggers do not prove the expected primary-key, foreign-key, uniqueness, nullability or CHECK constraints exist. Before delivery, make the seven trusted v1 CREATE TABLE definitions a single source used both by initialization and validation. Compare complete tokenized table DDL, allowing irrelevant whitespace and keyword case but preserving literal contents. Reject any changed structure or extra constraints rather than guessing semantic equivalence. All currently app-generated v1 files must still open without migration. Backup restore must reject a bundle with altered constraints even when its outer checksum is recomputed. This is a separate bounded task; it must not modify the real corpus to repair or normalize it.

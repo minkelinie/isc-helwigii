@@ -7,7 +7,7 @@ import pytest
 
 from isc_helwigii import local_translation as local
 from isc_helwigii.store import ResearchStore
-from isc_helwigii.translation import build_translation_sheet
+from isc_helwigii.translation import build_translation_sheet, render_translation_markdown
 
 
 @pytest.fixture
@@ -65,8 +65,21 @@ def test_model_proposal_preserves_exact_span_and_pending_evidence(source, monkey
     assert run["inputs"]["declared_language"] == "sumerian"
     assert run["inputs"]["source_language"] == "sux"
     assert run["outputs"]["text"] == "Synthetic output"
-    assert store.edition(edition_id) == before
+    checks = result["quality_checks"]
+    assert checks == run["outputs"]["quality_checks"] == annotation["payload"]["quality_checks"]
+    assert checks["source_sha256"] == hashlib.sha256("a₂ b".encode()).hexdigest()
+    assert checks["quantities"]["status"] == "not_assessed"
     assert build_translation_sheet(store, edition_id, "en")["coverage"]["ratio"] == 0
+    for decision in (None, "accepted"):
+        if decision:
+            store.review(
+                annotation["id"], decision, actor="tester", reason="synthetic fixture only"
+            )
+        sheet = build_translation_sheet(store, edition_id, "en")
+        assert "geen nauwkeurigheidsscore" in render_translation_markdown(sheet)
+        assert sheet["annotations"][0]["payload"]["quality_checks"] == checks
+    assert store.edition(edition_id) == before
+    assert build_translation_sheet(store, edition_id, "en")["coverage"]["ratio"] == 0.5
 
 
 @pytest.mark.parametrize(

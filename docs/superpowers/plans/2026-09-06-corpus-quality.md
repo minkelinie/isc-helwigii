@@ -58,6 +58,32 @@ assert len({result['assignments'][item['id']] for item in result['items']
 - [ ] Document command examples and accepted-label/family workflow, source-rights caveats, normalization, exclusions and changing-corpus split limitations. Add capabilities without changing scientific maturity claims.
 - [ ] Run targeted tests, then once `rtk proxy .venv/bin/python -m pytest -q`, `rtk proxy .venv/bin/python -m ruff check src tests scripts`, `rtk proxy .venv/bin/python scripts/check_docs.py`; inspect diff and record TDD evidence in the task report. Commit only scoped code/tests/docs, never real corpus files. Controller handles push/PR and real-data validation.
 
+### Task 2: Verify all required SQLite v1 constraints
+
+**Files:** Modify src/isc_helwigii/store.py. Create tests/test_schema_contract.py. Optional concise addition to docs/local-research-guide.md after Task 1 completes. Do not alter corpus.py/UI code.
+
+**Interfaces:** Existing ResearchStore.initialize(), validate(con), connection() and bundles.restore_bundle remain unchanged. Add an internal trusted table-DDL definition shared by initialize/validate and a lexical normalizer preserving SQL string literals. The required schema is the current seven CREATE TABLE statements, including review decision CHECK, all NOT NULL fields, primary and foreign keys and the two composite uniqueness constraints. Do not add new requirements such as NOT NULL to TEXT PRIMARY KEY columns that v1 did not declare.
+
+- [ ] Write a regression fixture that derives a new empty test schema from actual v1 sqlite_master SQL, but removes one constraint before executing it; keep all column names and triggers. It must currently pass validate and then fail after the fix. Never use PRAGMA writable_schema or alter the user's DB.
+
+```python
+def test_reject_missing_edition_foreign_key(tmp_path):
+    store = ResearchStore(tmp_path / 'good.db')
+    store.initialize()
+    # Build an in-memory clone from sqlite_master SQL, replacing only:
+    # 'artifact_id TEXT NOT NULL REFERENCES artifacts(id)'
+    # with 'artifact_id TEXT NOT NULL' in the editions table.
+    with pytest.raises(ValueError, match='schema'):
+        ResearchStore.validate(altered_connection)
+```
+
+- [ ] Parameterize distinct mutations for removed FK, removed UNIQUE, removed NOT NULL, changed type/PK and removed or weakened review decision CHECK. Include a mutation of a SQL string literal so case/whitespace normalization cannot accidentally accept changed permitted values.
+- [ ] Run `rtk proxy .venv/bin/python -m pytest tests/test_schema_contract.py -q --no-cov`; record RED showing altered schema incorrectly accepted.
+- [ ] Move only the current table DDL to a reusable constant; initialize retains transaction/index/trigger setup and schema version. Tokenize full CREATE TABLE SQL, comparing every token against the corresponding trusted statement. Ignore whitespace and keyword/identifier case outside literals; preserve literal characters exactly. Reject unmatched/extra tokens. Do not compare generated autoindex names or impose platform-dependent PRAGMA order.
+- [ ] Add passing fixtures for unchanged v1 schema and cosmetic external whitespace/keyword-case changes. Verify current source and restored files still open without writes.
+- [ ] Build a tampered backup fixture with weakened schema plus recomputed outer SHA-256; restore must reject it and leave destination absent. Test through the public restore function, not merely the helper.
+- [ ] Run focused tests, full suite once, Ruff and docs check. Commit scoped changes. Report RED/GREEN evidence, files changed and compatibility observations to the task report; no push or real corpus mutation.
+
 ## Delivery checklist (controller)
 
 - [ ] Task review and any corrections; validate the real 37,139-record project independently with SQL and report timings without a hardware guarantee.

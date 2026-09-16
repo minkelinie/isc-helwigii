@@ -8,6 +8,8 @@ from pathlib import Path
 import streamlit as st
 
 from isc_helwigii.translation import build_translation_sheet, render_translation_markdown
+from isc_helwigii.translation_quality import render_quality_text
+from isc_helwigii.translation_recheck import INPUT_FORMATS, recheck_translation
 
 STATUS = {
     "pending": "In afwachting",
@@ -29,8 +31,7 @@ def _key(*parts):
 def _annotation_label(annotation):
     payload = annotation["payload"]
     return (
-        f"{payload['start']}–{payload['end']} · {STATUS[annotation['status']]} · "
-        f"{annotation['id']}"
+        f"{payload['start']}–{payload['end']} · {STATUS[annotation['status']]} · {annotation['id']}"
     )
 
 
@@ -55,6 +56,36 @@ def _show_annotation(annotation, source):
             "Experimentele modelvertaling; controleer de lezing en betekenis aan de bron. "
             "Modeluitvoer kan onjuist of onvolledig zijn en vraagt een expliciete beoordeling."
         )
+        if checks := payload.get("quality_checks"):
+            quantities = checks["quantities"]
+            if quantities["missing_count"]:
+                st.warning(
+                    f"Controleer de aantallen: {quantities['missing_count']} getalgroep(en) "
+                    "zijn niet als dezelfde waarde in de vertaling teruggevonden. "
+                    "Bekijk hieronder de bronpassage en berekening."
+                )
+            if checks["names"]["candidates"]:
+                st.info("De bron bevat naamsignalen. Vergelijk deze handmatig met de vertaling.")
+            with st.expander(
+                "Kwaliteitscontrole bekijken", expanded=bool(quantities["missing_count"])
+            ):
+                st.text(render_quality_text(checks))
+        else:
+            st.caption("Dit oudere voorstel heeft nog geen vastgelegde kwaliteitscontrole.")
+    rechecks = annotation.get("quality_rechecks", [])
+    for index, run in enumerate(rechecks, 1):
+        checks = run["outputs"]
+        with st.expander(
+            f"Hercontrole {index} · {run['created_at']}", expanded=index == len(rechecks)
+        ):
+            st.text(f"Onderzoeker: {run['actor']}\nRun-ID: {run['id']}")
+            st.caption("De oorspronkelijke vertaling, controle en beoordeling blijven bewaard.")
+            if checks["quantities"]["missing_count"]:
+                st.warning(
+                    f"Hercontrole: {checks['quantities']['missing_count']} getalgroep(en) "
+                    "zijn niet als dezelfde waarde in de vertaling teruggevonden."
+                )
+            st.text(render_quality_text(checks))
     st.caption("Bibliografische verwijzing of brontekst")
     st.code(payload.get("reference") or "Niet opgegeven", language=None, wrap_lines=True)
     st.caption(
@@ -69,6 +100,71 @@ def _show_annotation(annotation, source):
         st.text(review["reason"])
     else:
         st.caption("Beoordelaar: nog niet beoordeeld.")
+
+
+def _recheck_proposal(store, annotation, edition, actor, scope):
+    """A separate action on the selected saved proposal, never the editable draft."""
+    from isc_helwigii.local_translation import canonical_language
+
+    key = _key(scope, annotation["id"], "recheck")
+    original = annotation["payload"].get("quality_checks") or {}
+    language = original.get("source_language") or edition.get("language")
+    try:
+        language = canonical_language(language)
+    except ValueError:
+        language = ""
+    notation = original.get("input_format", "")
+    if notation not in INPUT_FORMATS:
+        notation = ""
+    with st.expander("Opgeslagen voorstel hercontroleren"):
+        st.caption(
+            "Controleer de toegewezen bronpassage en opgeslagen vertaling hierboven opnieuw. "
+            "De hercontrole krijgt een eigen datum en onderzoeker en komt mee in het vertaalblad."
+        )
+        languages = {"": "Kies de brontaal", "sux": "Sumerisch", "akk": "Akkadisch"}
+        selected_language = st.selectbox(
+            "Brontaal voor hercontrole",
+            list(languages),
+            format_func=languages.get,
+            index=list(languages).index(language),
+            key=key + "_language",
+        )
+        formats = {
+            "": "Kies de schrijfwijze",
+            "transliteration": "Transliteratie",
+            "complex-transliteration": "Complexe transliteratie",
+            "cuneiform": "Spijkerschrifttekens",
+        }
+        selected_format = st.selectbox(
+            "Schrijfwijze voor hercontrole",
+            list(formats),
+            format_func=formats.get,
+            index=list(formats).index(notation),
+            key=key + "_format",
+        )
+        if annotation["payload"]["target_language"] != "en":
+            st.info(
+                "De getalcontrole ondersteunt Engelse vertalingen. Voor deze doeltaal "
+                "legt de hercontrole vast dat aantallen niet automatisch zijn beoordeeld."
+            )
+        if st.button(
+            "Opgeslagen vertaling opnieuw controleren",
+            key=key + "_submit",
+            disabled=not (selected_language and selected_format),
+        ):
+            try:
+                recheck_translation(
+                    store,
+                    annotation["id"],
+                    actor=actor,
+                    source_language=selected_language,
+                    input_format=selected_format,
+                )
+            except ValueError as exc:
+                st.error(f"Hercontrole niet opgeslagen: {exc}")
+            else:
+                st.session_state[scope + "_notice"] = "Hercontrole vastgelegd bij dit voorstel."
+                st.rerun()
 
 
 def _show_blocks(sheet, selected):
@@ -319,8 +415,8 @@ def translation_page(store, actor, choose_artifact):
             positions,
             format_func=lambda position: (
                 f"Positie {position}–{position + len(passage)}: "
-                f"…{source[max(0, position - 30):position]}"
-                f"⟦{passage}⟧{source[position + len(passage):position + len(passage) + 30]}…"
+                f"…{source[max(0, position - 30) : position]}"
+                f"⟦{passage}⟧{source[position + len(passage) : position + len(passage) + 30]}…"
             ),
             key=_key(scope, passage, "occurrence"),
         )
@@ -428,6 +524,7 @@ def translation_page(store, actor, choose_artifact):
         st.subheader("Gekozen voorstel en beoordeling")
         annotation = annotations[selected]
         _show_annotation(annotation, source)
+        _recheck_proposal(store, annotation, edition, actor, scope)
         review = annotation["review"]
         review_key = _key(scope, selected, review["seq"] if review else None, "review")
         with st.form(review_key):

@@ -272,8 +272,13 @@ def translate_text(
     )
     prompt = f"Translate {form} to English: {text}"
     result = _load_runtime(str(path), stamp).translate(prompt)
+    from isc_helwigii.translation_quality import assess_translation
+
     return {
         **result,
+        "quality_checks": assess_translation(
+            text, result["text"], source_language=language, input_format=input_format
+        ),
         "prompt": prompt,
         "source_language": language,
         "target_language": "en",
@@ -322,6 +327,18 @@ def propose_model_translation(
         target_language=target_language,
     )
     required(result["text"], "model output")
+    # Keep diagnostics bound to the exact selected passage and literal model output.
+    # The fallback also supports inference providers that do not supply diagnostics.
+    if "quality_checks" not in result:
+        from isc_helwigii.translation_quality import assess_translation
+
+        result["quality_checks"] = assess_translation(
+            text,
+            result["text"],
+            source_language=language,
+            input_format=input_format,
+            target_language=target_language,
+        )
     implementation = Path(__file__).read_bytes()
     inputs = {
         "edition_id": edition_id,
@@ -346,6 +363,7 @@ def propose_model_translation(
             "end": end,
             "target_language": target_language,
             "text": result["text"],
+            "quality_checks": result["quality_checks"],
             "model": {"id": MODEL_ID, "revision": MODEL_REVISION, "run_id": run},
             "reference": f"Automatisch modelvoorstel · {MODEL_ID} · {MODEL_REVISION} · experiment {run}",
         },

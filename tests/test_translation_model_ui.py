@@ -18,6 +18,7 @@ from test_translation_ui import (
 )
 
 import isc_helwigii
+from isc_helwigii.translation_quality import assess_translation
 
 MODEL_ID = "Thalesian/cuneiformBase-400m"
 MODEL_TEXT = "  **Synthetic translation**\n<script>literal</script>\n```text\n  "
@@ -159,6 +160,7 @@ def test_model_uses_selected_occurrence_and_saves_pending_for_explicit_review(
     for value in (MODEL_ID, "synthetic-revision", store.runs()[0]["id"]):
         assert value in provenance
     assert any("experimenteel" in item.value.lower() for item in app.warning)
+    assert any("oudere voorstel" in item.value for item in app.caption)
     run = store.runs()[0]
     assert run["inputs"]["source_text"] == "𒀭 ša"
     assert run["inputs"]["source_language"] == "akk"
@@ -325,3 +327,65 @@ def test_generation_errors_preserve_manual_draft_and_do_not_retry_on_rerun(
     assert len(model_core.calls) == 1
     assert store.runs() == []
     assert store.dossier(artifact_id)["annotations"] == []
+
+
+@pytest.mark.parametrize(
+    "prediction,missing",
+    [
+        ("132 ewes, Ur-Namma", True),
+        ("one thousand two hundred and thirty-two ewes, Ur-Namma", False),
+    ],
+)
+def test_quantity_evidence_remains_visible_after_review(workspace, model_core, prediction, missing):
+    app, store, artifact_id = workspace
+    source = "𒀭 2(gesz'u) 3(u) 2(disz) u8 ur-{d}namma"
+    store.import_records(
+        b"synthetic quantity UI regression",
+        [
+            {
+                "external_id": "SYNTH-TRANSLATION",
+                "text": source,
+                "language": "sux",
+                "synthetic": True,
+            }
+        ],
+        source="synthetic-ui-fixture",
+        license="CC0 synthetic fixture only",
+    )
+    edition = store.dossier(artifact_id)["editions"][-1]
+    checks = assess_translation(source, prediction, source_language="sux")
+    annotation = store.annotate(
+        artifact_id,
+        "translation",
+        {
+            "edition_id": edition["id"],
+            "start": 0,
+            "end": len(source),
+            "text": prediction,
+            "target_language": "en",
+            "model": {"id": MODEL_ID, "revision": "synthetic"},
+            "quality_checks": checks,
+        },
+        actor="synthetic tester",
+        evidence=[edition["id"]],
+        origin="inferred",
+    )
+    before = store.edition(edition["id"])
+    open_translation(app)
+    widget(app, "selectbox", "Broneditie").set_value(edition["id"]).run()
+    use_english(app)
+    assert any("Controleer de aantallen" in item.value for item in app.warning) == missing
+    detail = "\n".join(item.value for item in app.text)
+    for literal in ("1232", "2(gesz'u) 3(u) 2(disz)", "ur-{d}namma", "geen nauwkeurigheidsscore"):
+        assert literal in detail
+    assert widget(app, "metric", "Redactionele dekking").value == "0.0%"
+    widget(app, "text_area", "Beoordelingsgrond").set_value(
+        "Synthetic review; warning must persist."
+    )
+    widget(app, "button", "Beoordeling vastleggen").click().run()
+    assert not app.exception
+    assert any("Controleer de aantallen" in item.value for item in app.warning) == missing
+    assert store.dossier(artifact_id)["annotations"][-1]["id"] == annotation
+    assert store.edition(edition["id"]) == before
+    assert model_core.calls == []
+    assert store.runs() == []

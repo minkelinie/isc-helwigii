@@ -158,6 +158,24 @@ def validate_installed_wheel(wheel_path: Path) -> None:
                 "synthetic package test",
             ]
         )
+        recheck = json.loads(
+            run_checked(
+                cli
+                + [
+                    "recheck-translation",
+                    str(restored),
+                    annotation,
+                    "--actor",
+                    "wheel-recheck",
+                    "--source-language",
+                    "sux",
+                    "--input-format",
+                    "transliteration",
+                ]
+            ).stdout
+        )
+        if recheck["outputs"]["quantities"]["status"] != "not_assessed":
+            raise SystemExit("Dutch translation must not be scored by the English number screen")
         report = Path(temp_dir) / "translation.md"
         sheet = json.loads(
             run_checked(
@@ -175,6 +193,11 @@ def validate_installed_wheel(wheel_path: Path) -> None:
         )
         if sheet["coverage"]["ratio"] != 1 or "Synthetische pakkettest." not in report.read_text():
             raise SystemExit("installed translation worksheet did not retain reviewed translation")
+        checks = sheet["annotations"][0]["quality_rechecks"]
+        if len(checks) != 1 or checks[0]["id"] != recheck["run_id"]:
+            raise SystemExit("installed worksheet did not retain the separate quality recheck")
+        if recheck["run_id"] not in report.read_text():
+            raise SystemExit("installed Markdown export omitted the recheck provenance")
         run_checked(cli + ["health", "--database", str(restored), "--json"])
 
 

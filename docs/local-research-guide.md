@@ -56,9 +56,31 @@ Het model [cuneiformBase-400m van B. Lee Drake](https://huggingface.co/Thalesian
 
 Een voorstel bewaart de editie, exacte Unicode-posities, oorspronkelijke en gekozen taal, modelbestanden, versie, prompt, generatie-instellingen en bibliotheekversies in een experiment. Een taalkeuze corrigeert de bronmetadata niet. Broninhoud blijft intact; er ontstaat geen automatische acceptatie. Invoer boven 512 tokens, onbekende tekens en onvolledige uitvoer worden geweigerd: kies dan een kortere passage of werk handmatig. Generatie gebruikt CPU en kan bij de eerste aanvraag enkele seconden extra duren.
 
+Nieuwe modelvoorstellen krijgen een **Kwaliteitscontrole** met de getalgroepen uit de bron, de berekende waarde en de plek waar dezelfde waarde in de Engelse uitvoer staat. Zo wordt `2(gesz'u) 3(u) 2(disz)` onder de additieve telconventie als 1232 vergeleken; uitvoer met alleen 132 geeft een waarschuwing. Methode v2 herkent daarnaast volledig uitgeschreven Engelse getallen en rangtelwoorden tot 999999, bijvoorbeeld `one thousand two hundred and thirty-two` en `seventh`. De hele uitdrukking telt één keer: 3 wordt niet teruggevonden in `one hundred three`. De controle verandert de vertaling niet.
+
+Beschadigde bronlezingen, breuken en niet ondersteunde maatstelsels blijven expliciet onbeoordeeld. Ook niet ondersteunde Engelse getaluitdrukkingen, zoals `three point five`, `one half` of `3 hundred`, worden afzonderlijk vermeld. Daaruit worden geen losse getallen overgenomen. Niet herkende schrijfwijzen, omrekeningen en impliciete aantallen kunnen nog meldingen geven. Getallen die aanwezig zijn, kunnen bij de verkeerde zaak horen; woorden zoals `one` of `second` kunnen ook een andere functie hebben.
+
+Woorden met `{d}`, `{m}`, `{f}` of `{ki}` verschijnen daarnaast als **naamsignalen** met exacte bronposities. Vergelijk deze zelf met de vertaling. De software stelt geen naamovereenkomst vast; ongesignaleerde namen blijven mogelijk. De werkwijze volgt een beperkte selectie uit de [CDLI/MTAAC-telconventies](https://cdli-gh.github.io/guides/lists.html#numeracy-and-counting) en [ORACC-schrijfconventies](https://oracc.museum.upenn.edu/doc/help/editinginatf/primer/).
+
+De controle is een hulpmiddel, geen nauwkeurigheidsscore. De methode, implementatiehash, hashes van beide teksten en relatieve Unicode-posities worden met het experiment en de annotatie bewaard. Methode v2 legt ook de hashes van beide gebruikte controlemodulebestanden vast. Meldingen blijven zichtbaar na een redactionele acceptatie en gaan mee in Markdown en JSON. Oudere voorstellen zonder opgeslagen controle worden als zodanig aangeduid; bestaande v1-controles worden niet opnieuw geïnterpreteerd. Zie [de oorspronkelijke afbakening](translation-quality-2026-09-14.md) en [de uitbreiding voor Engelse getallen](translation-quality-2026-09-15.md).
+
 ```bash
 isc-helwigii translate onderzoek.db EDITIE_ID --actor 'onderzoeker' --start 0 --end 40 --target-language en --input-format transliteration --model-dir ./models/cuneiformBase-400m
 ```
+
+### Een opgeslagen voorstel opnieuw controleren
+
+Kies bij **Voorstel beoordelen** de opgeslagen vertaling. Open **Opgeslagen voorstel hercontroleren**, controleer de brontaal en schrijfwijze en klik **Opgeslagen vertaling opnieuw controleren**. Dit werkt ook bij oudere of handmatige voorstellen. Zonder oorspronkelijk vastgelegde schrijfwijze moet je die eerst kiezen. De controle gebruikt de toegewezen bronpassage en opgeslagen vertaling; een open vertaalconcept is geen invoer voor deze actie.
+
+Er komt een afzonderlijke **Hercontrole** met datum, onderzoeker, methode en run-ID bij. De oorspronkelijke bron, vertaling, kwaliteitscontrole, modelgeneratie en beoordelingen blijven intact. Een hercontrole verandert de status of dekkingsgraad niet. Herhaald klikken voegt bewust een nieuwe controle toe; gewoon bekijken of exporteren doet dat niet. De hercontroles gaan mee in het vertaalblad en de volledige projectback-up.
+
+De hercontrole gebruikt geen vertaalmodel of internet. Alleen Sumerische en Akkadische transliteraties naar Engels ondersteunen de getalvergelijking. Voor andere doeltalen of spijkerschrifttekens worden aantallen als niet beoordeeld vastgelegd. Namen en betekenis blijven mensenwerk. Via de CLI:
+
+```bash
+isc-helwigii recheck-translation onderzoek.db ANNOTATIE_ID --actor 'onderzoeker' --source-language sux --input-format transliteration
+```
+
+Zie [de technische afbakening en controle van de hercontrole](translation-recheck-2026-09-16.md).
 
 Download het werkblad als leesbare **Markdown** en als **JSON** met bronidentiteit, bronrechten, annotaties, laatste beoordelingen en fingerprint. Beide zijn een momentopname; exporteer opnieuw na wijzigingen. De export leest één consistente databasestand en verandert het project niet. De volledige reviewhistorie blijft in het project en de projectbundel. Via de CLI:
 
